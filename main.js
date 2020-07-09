@@ -9,11 +9,11 @@ var r = [];
 lineReader.eachLine('/home/pi/conf.txt', function(line) {
     //console.log(line);
         var w = line.split("\t");
+        console.log(w)
         var tmp = w[0]
         r.push({
             tmp: w[1]
         });
-    
 });
 console.log(r)
 
