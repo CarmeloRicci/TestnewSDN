@@ -10,6 +10,7 @@ fs.readFile('/home/pi/conf.txt', 'utf8', function (err,data) {
   console.log(data);
   text=data
 });
+console.log(text)
 
 var v = text.split("\n");
 for (var i = 0; i < v.length; i++) {
