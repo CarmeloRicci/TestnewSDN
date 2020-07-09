@@ -1,25 +1,13 @@
-fs = require('fs')
-
-var text;
+const lineReader = require('line-reader');
 var r = [];
 
-fs.readFile('/home/pi/conf.txt', 'utf8', function (err,data) {
-  if (err) {
-    return console.log(err);
-  }
-  console.log(data);
-  text=data
+lineReader.eachLine('/home/pi/conf.txt', function(line) {
+    //console.log(line);
+        var w = line.split("\t");
+        r.push({
+            'properties' : w[0],
+            'values': w[1]
+        });
 });
-console.log(text)
 
-var v = text.split("\n");
-for (var i = 0; i < v.length; i++) {
-    var w = v[i].split("\t");
-    var tmp = w[0]
-    r.push({
-        tmp: w[1]
-    });
-  }
-
-exports.readfile = fs.readFile;
-exports.v = v;
+exports.readconf = r;
