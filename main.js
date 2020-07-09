@@ -6,7 +6,6 @@ const ModuleReadConf = require('./services/readconf');
 
 
 //console.log(ModuleGetIp.ArrayIpOut)
-ModuleReadConf.lineReader
 console.log(ModuleReadConf.confnode)
 
 //ModuleListenerC.StartListener("Client Mode",ModuleGetIp.IpClient,2222);
