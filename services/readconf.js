@@ -11,6 +11,6 @@ lineReader.eachLine('/home/pi/conf.txt', function(line) {
             values: w[1]
         });
 });
-
-exports.readconf = r;
+exports.lineReader = lineReader;
+exports.confnode = r;
 
