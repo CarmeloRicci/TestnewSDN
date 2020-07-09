@@ -13,7 +13,7 @@ try {
 
     lines.forEach((line) => {
         var w = line.split("\t");
-        var tmp = JSON.stringify('[{'+ w[0] + ' : ' + w[1] + ' }]')
+        var tmp = JSON.stringify('{'+ w[0] + ' : ' + w[1] + ' }')
         confnode.push(tmp);
     });
 } catch (err) {
