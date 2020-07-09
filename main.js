@@ -55,6 +55,8 @@ var lunch = {
     drink: 'soda',
     chips: true
   };
+
+  console.log(lunch)
   
   // Add to the end of the object
   var lunchWithDessert = addToObject(lunch, 'dessert', 'cookie');
@@ -64,3 +66,5 @@ var lunch = {
   
   // Immutable copy of lunch
   var lunchClone = addToObject(lunch);
+
+  console.log(lunch)
