@@ -9,5 +9,6 @@ lineReader.eachLine('/home/pi/conf.txt', function(line) {
             'values': w[1]
         });
 });
+console.log(v)
 
 exports.readconf = r;
