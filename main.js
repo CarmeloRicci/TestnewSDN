@@ -9,7 +9,7 @@ fs = require('fs')
 
 const lineReader = require('line-reader');
 
-lineReader.eachLine('/path/to/file', function(line) {
+lineReader.eachLine('/home/pi/conf.txt', function(line) {
     console.log(line);
 });
 
