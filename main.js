@@ -7,15 +7,15 @@ const lineReader = require('line-reader');
 var r = [];
 
 lineReader.eachLine('/home/pi/conf.txt', function(line) {
-    console.log(line);
-        var w = v[i].split("\t");
+    //console.log(line);
+        var w = line.split("\t");
         var tmp = w[0]
         r.push({
             tmp: w[1]
         });
     
 });
-
+console.log(r)
 
 
 
