@@ -13,14 +13,6 @@
 //ModuleListenerC.StartListener("Client Mode",ModuleGetIp.IpClient,2222);
 //ModuleListenerS.StartListener("Station Mode",ModuleGetIp.IpServer,50007);
 
-var lunch = {
-    sandwich: 'turkey',
-    drink: 'soda',
-    chips: true
-  };
-  
-  // This gets added after "lunch.chips" in the object
-  lunch.dessert = 'cookie';
 
   var addToObject = function (obj, key, value, index) {
 
