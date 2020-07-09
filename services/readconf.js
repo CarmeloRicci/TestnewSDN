@@ -6,26 +6,26 @@ var confnode = [];
 
 console.log("Start readconf.js\n")
 
+const fs = require('fs');
 
+try {
+    // read contents of the file
+    const data = fs.readFileSync('file.txt', 'UTF-8');
 
-LineReaderSync = require("line-reader-sync")
-lrs = new LineReaderSync("/home/pi/conf.txt")
-while(true){
-  var line = lrs.readline()
-  
-    //console.log("line without \n",line)
-    var w = line.split("\t");
-    confnode.push({
-            properties : w[0],
+    // split the contents by new line
+    const lines = data.split(/\r?\n/);
+
+    // print all lines
+    lines.forEach((line) => {
+        var w = line.split("\t");
+        confnode.push({
+            properties: w[0],
             values: w[1]
         });
-  
-  
+    });
+} catch (err) {
+    console.error(err);
 }
-
-
-
-
 
 
 
