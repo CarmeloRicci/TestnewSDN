@@ -13,10 +13,8 @@ try {
 
     lines.forEach((line) => {
         var w = line.split("\t");
-        confnode.push({
-            properties: w[0],
-            values: w[1]
-        });
+        var tmp = JSON.stringify('[{'+ w[0] + ' : ' + w[1] + ' }]')
+        confnode.push(tmp);
     });
 } catch (err) {
     console.error(err);
