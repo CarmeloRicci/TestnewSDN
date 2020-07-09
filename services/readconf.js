@@ -8,7 +8,7 @@ console.log("Start readconf.js\n")
 
 try {
     // read contents of the file
-    const data = fs.readFileSync('file.txt', 'UTF-8');
+    const data = fs.readFileSync('/home/pi/conf.txt', 'UTF-8');
 
     // split the contents by new line
     const lines = data.split('/\r?\n/');
