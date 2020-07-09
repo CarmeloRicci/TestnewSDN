@@ -16,13 +16,13 @@ console.log("Start readconf.js\n")
 
 module.exports = ( async function(){
 
-    await lineReader.eachLine('/home/pi/conf.txt', function(line) {
+    lineReader.eachLine('/home/pi/conf.txt', function(line) {
         //console.log(line);
             var w = line.split("\t");
             r.push({
-                properties : w[0],
-                values: w[1]
-            });
+            properties: w[0],
+            values: w[1]
+        });
     });
     return r;
 
