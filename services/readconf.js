@@ -20,7 +20,6 @@ readInterface.on('line', function(line) {
             properties : w[0],
             values: w[1]
         });
-    console.log(confnode);
 });
 
 //     lineReader.eachLine('/home/pi/conf.txt', function(line) {
