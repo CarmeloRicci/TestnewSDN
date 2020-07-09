@@ -1,8 +1,8 @@
-var ModuleListener = require('./services/listener');
+var ModuleListenerC = require('./services/listener');
+var ModuleListenerS = require('./services/listenerS');
+var ModuleGetIp = require('./services/GetIp');
 
+console.log(ModuleGetIp.ArrayIpOut)
 
-myIpC = "192.168.1.90"
-myIpS = "192.168.1.90"
-
-ModuleListener.StartListener("Client Mode",2222);
-ModuleListener.StartListener("Station Mode",50007);
+ModuleListenerC.StartListener("Client Mode",ModuleGetIp.IpClient,2222);
+ModuleListenerS.StartListener("Station Mode",ModuleGetIp.IpServer,50007);
