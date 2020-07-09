@@ -1,7 +1,7 @@
 var ModuleListenerC = require('./services/listener');
 var ModuleListenerS = require('./services/listenerS');
 var ModuleGetIp = require('./services/GetIp');
-var ModuleReadConf = require('./services/readconf');
+//var ModuleReadConf = require('./services/readconf');
 
 
 fs = require('fs')
@@ -26,15 +26,6 @@ console.log(text)
 //         tmp: w[1]
 //     });
 //   }
-
-
-
-
-
-
-
-
-
 
 
 
