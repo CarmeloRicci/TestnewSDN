@@ -2,7 +2,7 @@ const lineReader = require('line-reader');
 const fs = require('fs');
 const readline = require('readline');
 
-var r = [];
+var confnode = [];
 
 console.log("Start readconf.js\n")
 
@@ -16,10 +16,11 @@ const readInterface = readline.createInterface({
 readInterface.on('line', function(line) {
     //console.log(line);
     var w = line.split("\t");
-        r.push({
+    confnode.push({
             properties : w[0],
             values: w[1]
         });
+    console.log(confnode);
 });
 
 //     lineReader.eachLine('/home/pi/conf.txt', function(line) {
@@ -31,7 +32,5 @@ readInterface.on('line', function(line) {
 //         });
 // });
 
-
-exports.lineReader = lineReader;
-exports.confnode = r;
+exports.confnode = confnode;
 
