@@ -14,6 +14,7 @@ fs.readFile('/home/pi/conf.txt', 'utf8', function (err,data) {
     return console.log(err);
   }
   console.log(data);
+  text = data
 });
 
 console.log(text)
