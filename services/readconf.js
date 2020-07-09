@@ -11,7 +11,7 @@ fs.readFile('/home/pi/conf.txt', 'utf8', function (err,data) {
   text=data
 });
 
-var v = t.split("\n");
+var v = text.split("\n");
 for (var i = 0; i < v.length; i++) {
     var w = v[i].split("\t");
     var tmp = w[0]
