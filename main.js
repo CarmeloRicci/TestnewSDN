@@ -1,30 +1,21 @@
-var ModuleListenerC = require('./services/listener');
-var ModuleListenerS = require('./services/listenerS');
-var ModuleGetIp = require('./services/GetIp');
-//var ModuleReadConf = require('./services/readconf');
-
-
-fs = require('fs')
-
+const ModuleListenerC = require('./services/listener');
+const ModuleListenerS = require('./services/listenerS');
+const ModuleGetIp = require('./services/GetIp');
+//const ModuleReadConf = require('./services/readconf');
 
 const lineReader = require('line-reader');
+var r = [];
 
 lineReader.eachLine('/home/pi/conf.txt', function(line) {
     console.log(line);
+        var w = v[i].split("\t");
+        var tmp = w[0]
+        r.push({
+            tmp: w[1]
+        });
+    
 });
 
-var text = "";
-var r = [];
-
-
-// var v = text.split("\n");
-// for (var i = 0; i < v.length; i++) {
-//     var w = v[i].split("\t");
-//     var tmp = w[0]
-//     r.push({
-//         tmp: w[1]
-//     });
-//   }
 
 
 
