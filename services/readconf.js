@@ -16,12 +16,11 @@ try {
         var w = line.split("\t");
         var obj = ({ [ w[0] ]: w[1] })
         var lunchWithDessert = addToObject(confnode, w[0], w[1]);
+        console.log(lunchWithDessert)
     });
 } catch (err) {
     console.error(err);
 }
-
-
 
 
 var addToObject = function (obj, key, value, index) {
