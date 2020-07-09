@@ -12,7 +12,7 @@ console.log("Start readconf.js\n")
 //         });
 // });
 
-exports.readconf = r;
+//exports.readconf = r;
 
 module.exports = ( async function(){
 
@@ -24,5 +24,6 @@ module.exports = ( async function(){
                 values: w[1]
             });
     });
+    return r;
 
 })
