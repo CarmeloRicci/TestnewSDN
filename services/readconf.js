@@ -16,7 +16,7 @@ console.log("Start readconf.js\n")
 
 module.exports = ( async function(){
 
-    lineReader.eachLine('/home/pi/conf.txt', function(line) {
+    await lineReader.eachLine('/home/pi/conf.txt', function(line) {
         //console.log(line);
             var w = line.split("\t");
             r.push({
