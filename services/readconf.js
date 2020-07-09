@@ -2,7 +2,7 @@ const lineReader = require('line-reader');
 const fs = require('fs');
 const readline = require('readline');
 
-var confnode = Object.create( {} );
+var confnode = {};
 //var confnode = [];
 
 console.log("Start readconf.js\n")
