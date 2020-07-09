@@ -1,6 +1,6 @@
 fs = require('fs')
 
-fs.readFile('/etc/hosts', 'utf8', function (err,data) {
+fs.readFile('/home/pi/conf.txt', 'utf8', function (err,data) {
   if (err) {
     return console.log(err);
   }
