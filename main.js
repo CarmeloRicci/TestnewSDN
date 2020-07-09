@@ -6,18 +6,16 @@ var ModuleGetIp = require('./services/GetIp');
 
 fs = require('fs')
 
+
+const lineReader = require('line-reader');
+
+lineReader.eachLine('/path/to/file', function(line) {
+    console.log(line);
+});
+
 var text = "";
 var r = [];
 
-fs.readFile('/home/pi/conf.txt', 'utf8', function (err,data) {
-  if (err) {
-    return console.log(err);
-  }
-  //console.log(data);
-  text = text + data
-});
-
-console.log(text)
 
 // var v = text.split("\n");
 // for (var i = 0; i < v.length; i++) {
