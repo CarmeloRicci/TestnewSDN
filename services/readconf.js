@@ -24,7 +24,7 @@ try {
 
 
 
-var addToObject = function (obj, key, value, index) {
+vvar addToObject = function (obj, key, value, index) {
 
 	// Create a temp object and index variable
 	var temp = {};
@@ -56,7 +56,6 @@ var addToObject = function (obj, key, value, index) {
 	return temp;
 
 };
-
 
 
 
