@@ -11,7 +11,7 @@ try {
     const data = fs.readFileSync('/home/pi/conf.txt', 'UTF-8');
 
     // split the contents by new line
-    const lines = data.split('/\r?\n/');
+    const lines = data.split('\n');
 
     // print all lines
     lines.forEach((line) => {
