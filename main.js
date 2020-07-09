@@ -6,7 +6,7 @@ var ModuleReadConf = require('./services/readconf');
 
 fs = require('fs')
 
-var text;
+var text = "";
 var r = [];
 
 fs.readFile('/home/pi/conf.txt', 'utf8', function (err,data) {
