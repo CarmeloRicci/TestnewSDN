@@ -19,3 +19,4 @@ class Packets {
     }
 }
 
+exports.Packets = Packets;
