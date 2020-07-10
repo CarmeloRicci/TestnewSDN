@@ -11,14 +11,14 @@ class Message {
     }
 
     static get_message_for_paket (P){
-        var BNetId =  new Buffer.from(ModuleConf.LenNetId,''+[P.NetId],'utf8')
-        var BLength =  new Buffer.from(ModuleConf.LenLength,''+[P.Length],'utf8')
-        var BDestination =  new Buffer.from(ModuleConf.LenDestination,''+[P.Destination],'utf8')
-        var BSource =  new Buffer.from(ModuleConf.LenSource,''+[P.Source],'utf8')
-        var BType =  new Buffer.from(ModuleConf.LenType,''+[P.Type],'utf8')
-        var BTTL =  new Buffer.from(ModuleConf.LenTTL,''+[P.TTL],'utf8')
-        var BNextHop =  new Buffer.from(ModuleConf.LenNextHop,''+[P.NextHop],'utf8')
-        var BPayload =  new Buffer.from(ModuleConf.LenPayload,''+[P.Payload],'utf8')
+        var BNetId =  new Buffer.alloc(ModuleConf.LenNetId,''+[P.NetId],'utf8')
+        var BLength =  new Buffer.alloc(ModuleConf.LenLength,''+[P.Length],'utf8')
+        var BDestination =  new Buffer.alloc(ModuleConf.LenDestination,''+[P.Destination],'utf8')
+        var BSource =  new Buffer.alloc(ModuleConf.LenSource,''+[P.Source],'utf8')
+        var BType =  new Buffer.alloc(ModuleConf.LenType,''+[P.Type],'utf8')
+        var BTTL =  new Buffer.alloc(ModuleConf.LenTTL,''+[P.TTL],'utf8')
+        var BNextHop =  new Buffer.alloc(ModuleConf.LenNextHop,''+[P.NextHop],'utf8')
+        var BPayload =  new Buffer.alloc(ModuleConf.LenPayload,''+[P.Payload],'utf8')
         //console.log(BNetId.toString(), BLength.toString(), BDestination.toString(), BSource.toString(), BType.toString(), BTTL.toString(), BNextHop.toString(), BPayload.toString())
         //console.log(BNetId.length, BLength.length, BDestination.length , BSource.length , BType.length , BTTL.length ,BNextHop.length , BPayload.length)
 
