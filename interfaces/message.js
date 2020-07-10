@@ -39,14 +39,14 @@ class Message {
 
     static get_message_for_paket(P) {
 
-        var BNetId = Buffer.alloc(ModuleConf.LenNetId)
-        var BLength = Buffer.alloc(ModuleConf.LenLength)
-        var BDestination = Buffer.alloc(ModuleConf.LenDestination)
-        var BSource = Buffer.alloc(ModuleConf.LenSource)
-        var BType = Buffer.alloc(ModuleConf.LenType)
-        var BTTL = Buffer.alloc(ModuleConf.LenTTL)
-        var BNextHop = Buffer.alloc(ModuleConf.LenNextHop)
-        var BPayload = Buffer.alloc(ModuleConf.LenPayload)
+        var BNetId = Buffer.allocUnsafeSlow(ModuleConf.LenNetId)
+        var BLength = Buffer.allocUnsafeSlow(ModuleConf.LenLength)
+        var BDestination = Buffer.allocUnsafeSlow(ModuleConf.LenDestination)
+        var BSource = Buffer.allocUnsafeSlow(ModuleConf.LenSource)
+        var BType = Buffer.allocUnsafeSlow(ModuleConf.LenType)
+        var BTTL = Buffer.allocUnsafeSlow(ModuleConf.LenTTL)
+        var BNextHop = Buffer.allocUnsafeSlow(ModuleConf.LenNextHop)
+        var BPayload = Buffer.allocUnsafeSlow(ModuleConf.LenPayload)
 
         BNetId.write('' + [P.NetId])
         BLength.write('' + [P.Length])
