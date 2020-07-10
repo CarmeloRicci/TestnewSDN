@@ -13,3 +13,5 @@ await ModuleListenerC.StartListener("Client Mode",ModuleGetIp.IpClient,2222);
 await ModuleListenerS.StartListener("Station Mode",ModuleGetIp.IpServer,50007);
 
 }
+
+start().then
