@@ -10,7 +10,7 @@ class Packets {
         this.Payload = Payload;
     }
 
-    get NetId (){
+    NetId (){
         return this.NetId
     }
 
