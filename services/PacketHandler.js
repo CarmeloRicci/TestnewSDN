@@ -26,7 +26,7 @@ class PacketHandler {
         var temp = packet.Type.toString();
         console.log (temp)
         // removing all the NULL unicode characters
-        var type = temp.replace(/\0[\s\S]*$/g,'');
+        var type = temp.replace(/\0[\s\S]/g,'');
         console.log (type)
         //console.log("after  (stringified): " + JSON.stringify(data.test));
 
@@ -42,7 +42,7 @@ class PacketHandler {
         }
 
         switch (packet.Type) {
-            case ModuleConf.TypeBeacon.toString():
+            case 0:
                 //console.log("Beacon");
                 break;
             case 1:
