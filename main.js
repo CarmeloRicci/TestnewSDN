@@ -1,5 +1,5 @@
 const ModuleListenerC = require('./services/listener');
-const ModuleListenerS = require('./services/listener');
+const ModuleListenerS = require('./services/listenerS');
 const ModuleGetIp = require('./services/GetIp');
 const ModuleReadConf = require('./services/readconf');
 
