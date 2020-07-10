@@ -26,9 +26,9 @@ var StartListener = function (TypeListener, NodeConf) {
 
     const p1 = new ModulePackets.Packets(1,100,1,1,0,99,1,"Ciao");
     console.log(TypeListener + ': ' + ModulePackets.Packets.print_packets(p1))
-    console.log(TypeListener + ': ' + p1.print_packets)
+
     
-    server.send(ModuleMessage.Message.get_message_for_paket(p1), 5000, '10.10.0.11', function (error) {
+    server.send(ModuleMessage.Message.get_message_for_paket(p1), 0, ModuleMessage.Message.get_message_for_paket(p1).length, 5000, '10.10.0.11', function (error) {
         if (error) {
             //server.close();
         } else {
