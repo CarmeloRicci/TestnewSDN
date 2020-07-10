@@ -1,13 +1,25 @@
 const Modulemessage = require('../interfaces/message');
 const ModulePackets = require('../interfaces/packets');
 const ModuleConf = require('../interfaces/config');
+const StringDecoder = require('string_decoder');
+const { decode } = require('querystring');
+const decoder = new StringDecoder('utf8');
+
+
+
+
+
+
+
+
+
 
 class PacketHandler {
 
     static packet_handler(packet) {
         console.log(packet.Type,packet.Type.length)
 
-        var type = packet.Type.toString('utf8');
+        decoder.write(packet.Type);
 
         console.log(type,type.length)
 
