@@ -1,4 +1,4 @@
-class Packets {
+var melo = class Packets {
     constructor(NetId, Length, Destination, Source, Type, TTL, NextHop, Payload) {
         this.NetId = NetId;
         this.Length = Length;
@@ -19,4 +19,4 @@ class Packets {
     }
 }
 
-exports.Packets = Packets;
+exports.melo = melo;
