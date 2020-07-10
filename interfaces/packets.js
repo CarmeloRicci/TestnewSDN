@@ -10,6 +10,10 @@ class Packets {
         this.Payload = Payload;
     }
 
+    get NetId (){
+        return this.NetId
+    }
+
     static packets() {
         return Packets
     }
