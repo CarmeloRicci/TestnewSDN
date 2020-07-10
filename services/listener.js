@@ -1,5 +1,6 @@
 var dgram = require('dgram');
 var server = dgram.createSocket('udp4');
+const ClassPackets = require('./interfaces/packets');
 
 var count = 0;
 
@@ -8,7 +9,7 @@ var StartListener = function (TypeListener, NodeConf) {
     var Ip = NodeConf.get('ClientIp')
     var Port = NodeConf.get('ClientPort')
 
-    console.log(TypeListener + ': Ciao! questo è il listener ' + TypeListener + " che è in esecuzione all'indirizzo " + Ip + ' e porta: ' + Port);
+    //console.log(TypeListener + ': Ciao! questo è il listener ' + TypeListener + " che è in esecuzione all'indirizzo " + Ip + ' e porta: ' + Port);
 
     //////// Feedback di apertura connessione ////////
     server.on('listening', function () {
@@ -30,7 +31,11 @@ var StartListener = function (TypeListener, NodeConf) {
     });
 
     server.bind(Port, Ip);
-    
+
+    //NetId, Length, Destination, Source, Type, TTL, NextHop, Payload
+    const p1 = new Packets(1,100,1,1,0,99,1,Ciao);
+    Packets.print_packets(p1);
+
 }
 
 exports.StartListener = StartListener;
