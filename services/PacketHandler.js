@@ -21,9 +21,11 @@ class PacketHandler {
 
         let json = JSON.stringify(packet.Type);
         console.log(json);
+
+        var type = JSON.parse(json)
         
 
-        var type = decoder.write(packet.Type);
+        //var type = decoder.write(packet.Type);
 
         console.log(type,type.length)
 
