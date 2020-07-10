@@ -28,6 +28,7 @@ class Message {
         const BTTL =  new Buffer.from([P.TTL])
         const BNextHop =  new Buffer.from([P.NextHop])
         const BPayload =  new Buffer.from([P.Payload])
+        console.log(BNetId.toString(), BLength.toString(), BDestination.toString(), BSource.toString(), BType.toString(), BTTL.toString(), BNextHop.toString(), BPayload.toString())
 
         console.log(BNetId.length, BLength.length, BDestination.length , BSource.length , BType.length , BTTL.length ,BNextHop.length , BPayload.length)
 
