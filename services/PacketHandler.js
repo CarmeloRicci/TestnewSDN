@@ -7,7 +7,7 @@ class PacketHandler {
     static packet_handler(packet) {
         console.log(packet.Type.toString(),packet.Type.toString().length)
         switch (packet.Type) {
-            case ModuleConf.TypeBeacon:
+            case ModuleConf.TypeBeacon.toString():
                 //console.log("Beacon");
                 break;
             case 1:
