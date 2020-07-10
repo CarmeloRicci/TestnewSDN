@@ -4,12 +4,10 @@ const ModuleGetIp = require('./services/GetIp');
 const ModuleReadConf = require('./services/readconf');
 
 
+var NodeConf = ModuleReadConf.confnode; // map con tutti i parametri letti dal file
 
-//console.log(ModuleGetIp.ArrayIpOut)
-//var NodeConf = ModuleReadConf.confnode;
-console.log(ModuleReadConf.confnode)
-console.log(ModuleReadConf.confnode.get('MyAddress'))
-//console.log('\n\n\t\t\t Sono il nodo ' + NodeConf.properties +' \n\n')
+
+console.log('\n\n\t\t\t Sono il nodo ' + NodeConf.get('MyAddress') +' \n\n')
 
 //ModuleListenerC.StartListener("Client Mode",ModuleGetIp.IpClient,2222);
 //ModuleListenerS.StartListener("Station Mode",ModuleGetIp.IpServer,50007);
