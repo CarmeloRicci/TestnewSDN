@@ -19,4 +19,4 @@ class Packets {
     }
 }
 
-module.exports.Packets = Packets;
+exports.Packets = Packets;

@@ -1,6 +1,6 @@
 var dgram = require('dgram');
 var server = dgram.createSocket('udp4');
-var ClassPackets = require('../interfaces/packets');
+var Packets = require('../interfaces/packets');
 
 var count = 0;
 
