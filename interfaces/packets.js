@@ -10,14 +10,6 @@ class Packets {
         this.Payload = Payload;
     }
 
-    NetId (){
-        return this.NetId
-    }
-
-    static packets() {
-        return Packets
-    }
-
     static print_packets(P) {
         return 'NetId: '+P.NetId+' Length: '+P.Length+' Destination: '+P.Destination+ ' Source: ' + P.Source + ' Type: '+ P.Type + ' TTL: '+ P.TTL + ' NextHop: '+ P.NextHop + ' Payload: ' + P.Payload;
     }

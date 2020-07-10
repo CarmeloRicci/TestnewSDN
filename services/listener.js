@@ -1,6 +1,7 @@
-var dgram = require('dgram');
-var server = dgram.createSocket('udp4');
-var Packet = require('../interfaces/packets');
+const dgram = require('dgram');
+const server = dgram.createSocket('udp4');
+const ModulePackets = require('../interfaces/packets');
+const ModulePacketHandler = require('../services/PacketHandler');
 
 var count = 0;
 
@@ -9,31 +10,21 @@ var StartListener = function (TypeListener, NodeConf) {
     var Ip = NodeConf.get('ClientIp')
     var Port = NodeConf.get('ClientPort')
 
-    //console.log(TypeListener + ': Ciao! questo è il listener ' + TypeListener + " che è in esecuzione all'indirizzo " + Ip + ' e porta: ' + Port);
-
-    //////// Feedback di apertura connessione ////////
     server.on('listening', function () {
         var address = server.address();
         console.log(TypeListener + ': UDP Server listening on ' + address.address + ':' + address.port);
     });
 
-    //////// Feedback di apertura connessione ////////
-    //   server.on('message', function (message, remote) {
-    //     console.log(TypeListener + ': [' + count + '] ' + remote.address + ':' + remote.port + ' - ' + message);
-    //     count++;
-    //     var buf = Buffer.from(message);
-    //   });
-
     server.on('message', function (message, remote) {
-        console.log(TypeListener + ': [' + count + '] ' + remote.address + ':' + remote.port + ' - ' + message);
-        count++;
+        console.log(TypeListener + ': Receiver message from ' + remote.address + ':' + remote.port + ' - ' + message);
         var buf = Buffer.from(message);
+
     });
 
     server.bind(Port, Ip);
 
-    const p1 = new Packet.Packets(1,100,1,1,0,99,1,"Ciao");
-    console.log(TypeListener + ':' + Packet.Packets.print_packets(p1))
+    const p1 = new ModulePackets.Packets(1,100,1,1,0,99,1,"Ciao");
+    console.log(TypeListener + ':' + ModulePackets.Packets.print_packets(p1))
     console.log(TypeListener + ':' + p1.print_packets)
 
 }
