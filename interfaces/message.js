@@ -20,6 +20,7 @@ class Message {
     }
 
     static get_message_for_paket (P){
+        console.log(P.NetId)
         const BNetId =  new Buffer.from([P.NetId])
         const BLength =  new Buffer.from([P.Length])
         const BDestination =  new Buffer.from([P.Destination])
