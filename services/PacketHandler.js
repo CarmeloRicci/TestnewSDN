@@ -23,10 +23,10 @@ class PacketHandler {
 
 
         
-        var temp = JSON.stringify(packet.Type);
+        var temp = packet.Type.toString();
         console.log (temp)
         // removing all the NULL unicode characters
-        var type = temp.replace('/\u0000/g','');
+        var type = temp.replace(/\0[\s\S]*$/g,'');
         console.log (type)
         //console.log("after  (stringified): " + JSON.stringify(data.test));
 
