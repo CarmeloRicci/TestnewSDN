@@ -5,7 +5,7 @@ const ModuleConf = require('../interfaces/config');
 class PacketHandler {
 
     static packet_handler(packet) {
-        console.log(packet.Type.toString(),packet.Type.toString().length)
+        console.log(packet.Type.substr(1,1).toString(),packet.Type.substr(1,1).toString().length)
 
         if (packet.Type.substr(1,1) == 0) {
             console.log("Beacon");
