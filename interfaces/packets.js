@@ -14,8 +14,8 @@ class Packets {
         return Packets
     }
 
-    static print_packets(Packets) {
-        return 'NetId: '+this.NetId+' Length: '+this.Length+' Destination: '+this.Destination+ ' Source: ' + this.Source + ' Type: '+ this.Type + ' TTL: '+ this.TTL + ' NextHop: '+ this.NextHop + ' Payload: ' + this.Payload;
+    static print_packets(P) {
+        return 'NetId: '+P.NetId+' Length: '+P.Length+' Destination: '+P.Destination+ ' Source: ' + P.Source + ' Type: '+ P.Type + ' TTL: '+ P.TTL + ' NextHop: '+ P.NextHop + ' Payload: ' + P.Payload;
     }
 }
 
