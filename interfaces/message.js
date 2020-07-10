@@ -20,15 +20,14 @@ class Message {
     }
 
     static get_message_for_paket (P){
-        console.log(P.NetId)
-        const BNetId =  new Buffer.from([P.NetId])
-        const BLength =  new Buffer.from([P.Length])
-        const BDestination =  new Buffer.from([P.Destination])
-        const BSource =  new Buffer.from([P.Source])
-        const BType =  new Buffer.from([P.Type])
-        const BTTL =  new Buffer.from([P.TTL])
-        const BNextHop =  new Buffer.from([P.NextHop])
-        const BPayload =  new Buffer.from([P.Payload])
+        var BNetId =  new Buffer.from(''+[P.NetId])
+        var BLength =  new Buffer.from(''+[P.Length])
+        var BDestination =  new Buffer.from(''+[P.Destination])
+        var BSource =  new Buffer.from(''+[P.Source])
+        var BType =  new Buffer.from(''+[P.Type])
+        var BTTL =  new Buffer.from(''+[P.TTL])
+        var BNextHop =  new Buffer.from(''+[P.NextHop])
+        var BPayload =  new Buffer.from(''+[P.Payload])
         console.log(BNetId.toString(), BLength.toString(), BDestination.toString(), BSource.toString(), BType.toString(), BTTL.toString(), BNextHop.toString(), BPayload.toString())
 
         console.log(BNetId.length, BLength.length, BDestination.length , BSource.length , BType.length , BTTL.length ,BNextHop.length , BPayload.length)
