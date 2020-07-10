@@ -25,7 +25,7 @@ class PacketHandler {
         var temp = JSON.stringify(packet.Type);
         
         // removing all the NULL unicode characters
-        var type = temp.replace(/\u0000/g,'');
+        var type = temp.replace('/\u0000/g','');
         
         //console.log("after  (stringified): " + JSON.stringify(data.test));
 
