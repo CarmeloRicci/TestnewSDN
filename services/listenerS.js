@@ -5,9 +5,9 @@ var count = 0;
 
 var StartListener = function (TypeListener, NodeConf) {
 
-  var Ip = NodeConf.get('ClientIp')
-  var Port = NodeConf.get('ClientPort')
-  
+  var Ip = NodeConf.get('ServerIp')
+  var Port = NodeConf.get('ServerPort')
+
   console.log(TypeListener + ': Ciao! questo è il listener ' + TypeListener + " che è in esecuzione all'indirizzo " + Ip + ' e porta: ' + Port);
 
   server.on('listening', function () {
