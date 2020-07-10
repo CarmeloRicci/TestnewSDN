@@ -29,7 +29,7 @@ var StartListener = function (TypeListener, NodeConf) {
     console.log(TypeListener + ': ' + ModulePackets.Packets.print_packets(p1))
 
     var message = new Buffer.alloc(ModuleConf.LenLength);
-    message.write(ModuleMessage.Message.get_message_for_paket(p1))
+    message.from(ModuleMessage.Message.get_message_for_paket(p1))
     
     server.send(message, 0, message.length, 5010, "10.10.0.11", function (err, bytes) {
         if (err) {
