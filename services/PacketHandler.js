@@ -9,6 +9,8 @@ class PacketHandler {
 
         var type = packet.Type.toString();
 
+        console.log(type,type.length)
+
         if (type == 0) {
             console.log("Beacon");
         }
