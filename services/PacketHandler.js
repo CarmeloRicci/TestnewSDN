@@ -19,7 +19,7 @@ class PacketHandler {
     static packet_handler(packet) {
         console.log(packet.Type,packet.Type.length)
 
-        decoder.write(packet.Type);
+        var type = decoder.write(packet.Type);
 
         console.log(type,type.length)
 
