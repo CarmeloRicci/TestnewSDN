@@ -34,7 +34,7 @@ var StartListener = function (TypeListener, NodeConf) {
 
     const p1 = new Packet.Packets(1,100,1,1,0,99,1,"Ciao");
     console.log(TypeListener + ':' + Packet.Packets.print_packets(p1))
-    console.log(TypeListener + ':' + p1)
+    console.log(TypeListener + ':' + p1.NetId)
 
 }
 
