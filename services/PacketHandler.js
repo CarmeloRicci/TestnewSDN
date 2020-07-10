@@ -1,6 +1,6 @@
 const Modulemessage = require('../interfaces/message');
-const ModulePackets = require('./packets');
-const ModuleConf = require('./config');
+const ModulePackets = require('../interfaces/packets');
+const ModuleConf = require('../interfaces/config');
 
 class PacketHandler {
 
