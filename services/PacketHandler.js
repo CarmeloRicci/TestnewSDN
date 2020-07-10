@@ -17,44 +17,20 @@ const decoder = new StringDecoder('utf8');
 class PacketHandler {
 
     static packet_handler(packet) {
-        console.log(packet.Type,packet.Type.length)
-
-        //var type = decoder.write(packet.Type);
-
-
-        
-        var temp = packet.Type.toString();
-        console.log (temp)
-        // removing all the NULL unicode characters
-        var type = temp.replace(/\0/g,'');
-        console.log (type)
-        //console.log("after  (stringified): " + JSON.stringify(data.test));
-
-
-        console.log (type)
-
-        
-
-        console.log(type,type.length)
-
-        if (type == 0) {
-            console.log("Beacon");
-        }
-
-        switch (type) {
+        switch (packet.Type.toString().replace(/\0/g,'')) {
             case '0':
                 //console.log("Beacon");
                 break;
-            case 1:
+            case '1':
                 //console.log("Report");
                 break;
-            case 2:
+            case '2':
                 //console.log("OpenPath");
                 break;
-            case 3:
+            case '3':
                 //console.log("Status");
                 break;
-            case 4:
+            case '4':
                 //console.log("Data");
                 break;
             default:
