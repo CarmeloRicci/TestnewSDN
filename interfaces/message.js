@@ -9,28 +9,28 @@ class Message {
 
         var packet = new ModulePackets.Packets();
         
-        packet.NetId = message.subarray(0,ModuleConf.LenNetId).toString()
+        packet.NetId = message.subarray(0,ModuleConf.LenNetId).toString('utf8')
         index = index + ModuleConf.LenNetId
 
-        packet.Length = message.subarray(index,index+ModuleConf.LenLength).toString()
+        packet.Length = message.subarray(index,index+ModuleConf.LenLength).toString('utf8')
         index = index + ModuleConf.LenLength
 
-        packet.Destination = message.subarray(index,index+ModuleConf.LenDestination).toString()
+        packet.Destination = message.subarray(index,index+ModuleConf.LenDestination).toString('utf8')
         index = index + ModuleConf.LenDestination
 
-        packet.Source = message.subarray(index,index+ModuleConf.LenSource).toString()
+        packet.Source = message.subarray(index,index+ModuleConf.LenSource).toString('utf8')
         index = index + ModuleConf.LenSource
 
-        packet.Type = message.subarray(index,index+ModuleConf.LenType).toString()
+        packet.Type = message.subarray(index,index+ModuleConf.LenType).toString('utf8')
         index = index + ModuleConf.LenType
 
-        packet.TTL = message.subarray(index,index+ModuleConf.LenTTL).toString()
+        packet.TTL = message.subarray(index,index+ModuleConf.LenTTL).toString('utf8')
         index = index + ModuleConf.LenTTL
 
-        packet.NextHop = message.subarray(index,index+ModuleConf.LenNextHop).toString()
+        packet.NextHop = message.subarray(index,index+ModuleConf.LenNextHop).toString('utf8')
         index = index + ModuleConf.LenNextHop
 
-        packet.Payload = message.subarray(index,index+ModuleConf.LenPayload).toString()
+        packet.Payload = message.subarray(index,index+ModuleConf.LenPayload).toString('utf8')
 
         console.log(packet.NetId.length, packet.Length.length, packet.Destination.length , packet.Source.length , packet.Type.length , packet.TTL.length ,packet.NextHop.length , packet.Payload.length)
         return packet
@@ -39,14 +39,14 @@ class Message {
 
     static get_message_for_paket(P) {
 
-        var BNetId = Buffer.allocUnsafe(ModuleConf.LenNetId)
-        var BLength = Buffer.allocUnsafe(ModuleConf.LenLength)
-        var BDestination = Buffer.allocUnsafe(ModuleConf.LenDestination)
-        var BSource = Buffer.allocUnsafe(ModuleConf.LenSource)
-        var BType = Buffer.allocUnsafe(ModuleConf.LenType)
-        var BTTL = Buffer.allocUnsafe(ModuleConf.LenTTL)
-        var BNextHop = Buffer.allocUnsafe(ModuleConf.LenNextHop)
-        var BPayload = Buffer.allocUnsafe(ModuleConf.LenPayload)
+        var BNetId = Buffer.alloc(ModuleConf.LenNetId)
+        var BLength = Buffer.alloc(ModuleConf.LenLength)
+        var BDestination = Buffer.alloc(ModuleConf.LenDestination)
+        var BSource = Buffer.alloc(ModuleConf.LenSource)
+        var BType = Buffer.alloc(ModuleConf.LenType)
+        var BTTL = Buffer.alloc(ModuleConf.LenTTL)
+        var BNextHop = Buffer.alloc(ModuleConf.LenNextHop)
+        var BPayload = Buffer.alloc(ModuleConf.LenPayload)
 
         BNetId.write('' + [P.NetId])
         BLength.write('' + [P.Length])

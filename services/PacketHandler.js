@@ -19,6 +19,10 @@ class PacketHandler {
     static packet_handler(packet) {
         console.log(packet.Type,packet.Type.length)
 
+        let json = JSON.stringify(packet.Type);
+        console.log(json);
+        
+
         var type = decoder.write(packet.Type);
 
         console.log(type,type.length)
