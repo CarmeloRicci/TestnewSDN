@@ -29,6 +29,8 @@ class Message {
         const BNextHop =  new Buffer.from([P.NextHop])
         const BPayload =  new Buffer.from([P.Payload])
 
+        console.log(BNetId.length, BLength.length, BDestination.length , BSource.length , BType.length , BTTL.length ,BNextHop.length , BPayload.length)
+
         const TotalLength = BNetId.length + BLength.length + BDestination.length + BSource.length + BType.length + BTTL.length + BNextHop.length + BPayload.length
 
         const BufferMesage =  Buffer.concat([BNetId, BLength,BDestination,BSource,BType,BTTL,BNextHop,BPayload], TotalLength);
