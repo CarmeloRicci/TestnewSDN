@@ -9,9 +9,9 @@ async function start() {
 
     console.log('\n\n\t\tI am node ' + NodeConf.get('MyAddress') + '\n\t\tMy Client Address is: ' + NodeConf.get('ClientIp') + '\n\t\tMy Server Address is: ' + NodeConf.get('ServerIp') + '\n')
 
-    if (Node.NodeConf.get('ClientIp') != undefined)
+    if (NodeConf.get('ClientIp') != undefined)
     await ModuleListenerC.StartListener("Client Mode", NodeConf);
-    if (Node.NodeConf.get('ServerIp') != undefined)
+    if (NodeConf.get('ServerIp') != undefined)
     await ModuleListenerS.StartListener("Station Mode", NodeConf);
 
 }
