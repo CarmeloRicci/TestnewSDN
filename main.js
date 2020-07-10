@@ -1,7 +1,7 @@
 const ModuleListenerC = require('./services/listener');
 const ModuleListenerS = require('./services/listener');
 const ModuleGetIp = require('./services/GetIp');
-const ModuleReadConf = require('./services/Readconf');
+const ModuleReadConf = require('./services/readconf');
 
 async function start() {
 
