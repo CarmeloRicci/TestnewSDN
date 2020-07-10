@@ -33,7 +33,8 @@ class PacketHandler {
         type = JSON.parse(type)
         console.log (type)
 
-        type = web3.toAscii(type)
+        
+         type = String.fromCharCode(packet.Type)
         console.log(type,type.length)
 
         if (type == 0) {
