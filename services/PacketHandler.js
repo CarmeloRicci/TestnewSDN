@@ -21,7 +21,17 @@ class PacketHandler {
 
         //var type = decoder.write(packet.Type);
 
-        var type = packet.Type.toString().trim()
+
+        var temp = JSON.stringify(packet.Type);
+        
+        // removing all the NULL unicode characters
+        var type = temp.replace(/\u0000/g,'');
+        
+        //console.log("after  (stringified): " + JSON.stringify(data.test));
+
+        type = JSON.parse(type)
+
+
         console.log(type,type.length)
 
         if (type == 0) {
