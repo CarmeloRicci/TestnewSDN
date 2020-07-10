@@ -3,6 +3,7 @@ const server = dgram.createSocket('udp4');
 const ModulePackets = require('../interfaces/packets');
 const ModuleMessage = require('../interfaces/message');
 const ModulePacketHandler = require('../services/PacketHandler');
+const ModuleConf = require('../interfaces/config');
 
 var count = 0;
 
@@ -23,11 +24,12 @@ var StartListener = function (TypeListener, NodeConf) {
     });
 
     server.bind(Port, Ip);
-    
+
     const p1 = new ModulePackets.Packets("001","100","001","001","000","099","001","Ciao");
     console.log(TypeListener + ': ' + ModulePackets.Packets.print_packets(p1))
 
-    var message = new Buffer (ModuleMessage.Message.get_message_for_paket(p1))
+    var message = new Buffer.alloc(ModuleConf.LenLength);
+    message.write(ModuleMessage.Message.get_message_for_paket(p1))
     
     server.send(message, 0, message.length, 5010, "10.10.0.11", function (err, bytes) {
         if (err) {
