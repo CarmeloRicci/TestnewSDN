@@ -7,7 +7,7 @@ class PacketHandler {
     static packet_handler(packet) {
         console.log(packet.Type.toString(),packet.Type.toString().length)
 
-        if (packet.Type == ModuleConf.TypeBeacon) {
+        if (packet.Type === ModuleConf.TypeBeacon) {
             console.log("Beacon");
         }
 
