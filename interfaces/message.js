@@ -3,11 +3,8 @@ const ModuleConf = require('./config');
 
 class Message {
 
-    static get_packet_for_message() {
-        var buf = new Buffer(data);
-        var short_name = buf.toString('ascii', 0, 16);
-        var name = buf.toString('ascii', 16, 32);
-        return ""
+    static get_packet_for_message(message) {
+        console.log(message.length)
     }
 
     static get_message_for_paket(P) {
@@ -30,8 +27,8 @@ class Message {
         BNextHop.write('' + [P.NextHop])
         BPayload.write('' + [P.Payload])
 
-        console.log(BNetId.toString(), BLength.toString(), BDestination.toString(), BSource.toString(), BType.toString(), BTTL.toString(), BNextHop.toString(), BPayload.toString())
-        console.log(BNetId.length, BLength.length, BDestination.length , BSource.length , BType.length , BTTL.length ,BNextHop.length , BPayload.length)
+        //console.log(BNetId.toString(), BLength.toString(), BDestination.toString(), BSource.toString(), BType.toString(), BTTL.toString(), BNextHop.toString(), BPayload.toString())
+        //console.log(BNetId.length, BLength.length, BDestination.length , BSource.length , BType.length , BTTL.length ,BNextHop.length , BPayload.length)
 
         const TotalLength = BNetId.length + BLength.length + BDestination.length + BSource.length + BType.length + BTTL.length + BNextHop.length + BPayload.length
 

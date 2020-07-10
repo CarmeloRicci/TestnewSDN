@@ -1,5 +1,7 @@
 var dgram = require('dgram');
 var server = dgram.createSocket('udp4');
+const ModulePackets = require('../interfaces/packets');
+const ModuleMessage = require('../interfaces/message');
 
 var count = 0;
 
@@ -19,6 +21,7 @@ var StartListener = function (TypeListener, NodeConf) {
     console.log('[' + count + '] ' + remote.address + ':' + remote.port + ' - ' + message);
     count++;
     var buf = Buffer.from(message);
+    ModuleMessage.Message.get_packet_for_message(message);
 
   });
 
