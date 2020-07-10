@@ -5,6 +5,7 @@ const ModuleConf = require('../interfaces/config');
 class PacketHandler {
 
     static packet_handler(packet) {
+        console.log(packet.Type)
         switch (packet.Type) {
             case '0':
                 //console.log("Beacon");
