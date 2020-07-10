@@ -32,7 +32,10 @@ class Message {
 
         packet.Payload = message.subarray(index,index+ModuleConf.LenPayload-1).toString()
         
+        console.log(packet.NetId.length, packet.Length.length, packet.Destination.length , packet.Source.length , packet.Type.length , packet.TTL.length ,packet.NextHop.length , packet.Payload.length)
         return packet
+
+
 
     }
 
