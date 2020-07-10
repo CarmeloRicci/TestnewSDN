@@ -30,7 +30,7 @@ var StartListener = function (TypeListener, NodeConf) {
     var message = new Buffer (ModuleMessage.Message.get_message_for_paket(p1))
     
     server.send(message, 0, message.length, 5000, "10.10.0.11", function (err, bytes) {
-        if (error) {
+        if (err) {
             //server.close();
         } else {
           console.log('Data sent !!!');
