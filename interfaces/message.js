@@ -9,7 +9,7 @@ class Message {
 
         var packet = new ModulePackets.Packets();
         
-        packet.NetId = message.subarray(0,ModuleConf.LenNetId).toString()
+        packet.NetId = message.subarray(0,ModuleConf.LenNetId-1).toString()
         index = index + ModuleConf.LenNetId
 
         packet.Length = message.subarray(index,index+ModuleConf.LenLength-1).toString()
@@ -31,7 +31,7 @@ class Message {
         index = index + ModuleConf.LenNextHop
 
         packet.Payload = message.subarray(index,index+ModuleConf.LenPayload-1).toString()
-        
+
         console.log(packet.NetId.length, packet.Length.length, packet.Destination.length , packet.Source.length , packet.Type.length , packet.TTL.length ,packet.NextHop.length , packet.Payload.length)
         return packet
 
