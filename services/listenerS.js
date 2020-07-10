@@ -21,7 +21,7 @@ var StartListener = function (TypeListener, NodeConf) {
     console.log('[' + count + '] ' + remote.address + ':' + remote.port + ' - ' + message);
     count++;
     var buf = Buffer.from(message);
-    ModuleMessage.Message.get_packet_for_message(message);
+    console.log (ModulePackets.Packets.print_packets(ModuleMessage.Message.get_packet_for_message(message) ) );
 
   });
 

@@ -5,6 +5,35 @@ class Message {
 
     static get_packet_for_message(message) {
         console.log(message.length)
+        var index = 0;
+
+        var packet = new Packets();
+        
+        packet.NetId = message.subarray(0,ModuleConf.LenNetId).toString()
+        index = index + ModuleConf.LenNetId
+
+        packet.Length = message.subarray(index,index+ModuleConf.LenLength-1).toString()
+        index = index + ModuleConf.LenLength
+
+        packet.Destination = message.subarray(index,index+ModuleConf.LenDestination-1).toString()
+        index = index + ModuleConf.LenDestination
+
+        packet.Source = message.subarray(index,index+ModuleConf.LenSource-1).toString()
+        index = index + ModuleConf.LenSource
+
+        packet.Type = message.subarray(index,index+ModuleConf.LenType-1).toString()
+        index = index + ModuleConf.LenType
+
+        packet.TTL = message.subarray(index,index+ModuleConf.LenTTL-1).toString()
+        index = index + ModuleConf.LenTTL
+
+        packet.NextHop = message.subarray(index,index+ModuleConf.LenNextHop-1).toString()
+        index = index + ModuleConf.LenNextHop
+
+        packet.Payload = message.subarray(index,index+ModuleConf.LenPayload-1).toString()
+        
+        return packet
+
     }
 
     static get_message_for_paket(P) {
@@ -31,7 +60,6 @@ class Message {
         //console.log(BNetId.length, BLength.length, BDestination.length , BSource.length , BType.length , BTTL.length ,BNextHop.length , BPayload.length)
 
         const TotalLength = BNetId.length + BLength.length + BDestination.length + BSource.length + BType.length + BTTL.length + BNextHop.length + BPayload.length
-
         const BufferMesage = Buffer.concat([BNetId, BLength, BDestination, BSource, BType, BTTL, BNextHop, BPayload], TotalLength);
 
         return BufferMesage
