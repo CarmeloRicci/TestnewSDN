@@ -8,7 +8,7 @@ const ModuleReadConf = require('./services/readconf');
 //console.log(ModuleGetIp.ArrayIpOut)
 //var NodeConf = ModuleReadConf.confnode;
 console.log(ModuleReadConf.confnode)
-console.log(ModuleReadConf.confnode['MyAddress'])
+console.log(ModuleReadConf.confnode.get('MyAddress'))
 //console.log('\n\n\t\t\t Sono il nodo ' + NodeConf.properties +' \n\n')
 
 //ModuleListenerC.StartListener("Client Mode",ModuleGetIp.IpClient,2222);
