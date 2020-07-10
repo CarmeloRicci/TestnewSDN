@@ -3,7 +3,10 @@ var server = dgram.createSocket('udp4');
 
 var count = 0;
 
-var StartListener = function (TypeListener, Ip, Port) {
+var StartListener = function (TypeListener, NodeConf) {
+
+    var Ip = NodeConf.get('ClientIp')
+    var Port = NodeConf.get('ClientPort')
 
     console.log(TypeListener + ': Ciao! questo è il listener ' + TypeListener + " che è in esecuzione all'indirizzo " + Ip + ' e porta: ' + Port);
 
