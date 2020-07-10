@@ -9,28 +9,28 @@ class Message {
 
         var packet = new ModulePackets.Packets();
         
-        packet.NetId = message.subarray(0,ModuleConf.LenNetId-1).toString()
+        packet.NetId = message.subarray(0,ModuleConf.LenNetId).toString()
         index = index + ModuleConf.LenNetId
 
-        packet.Length = message.subarray(index,index+ModuleConf.LenLength-1).toString()
+        packet.Length = message.subarray(index,index+ModuleConf.LenLength).toString()
         index = index + ModuleConf.LenLength
 
-        packet.Destination = message.subarray(index,index+ModuleConf.LenDestination-1).toString()
+        packet.Destination = message.subarray(index,index+ModuleConf.LenDestination).toString()
         index = index + ModuleConf.LenDestination
 
-        packet.Source = message.subarray(index,index+ModuleConf.LenSource-1).toString()
+        packet.Source = message.subarray(index,index+ModuleConf.LenSource).toString()
         index = index + ModuleConf.LenSource
 
-        packet.Type = message.subarray(index,index+ModuleConf.LenType-1).toString()
+        packet.Type = message.subarray(index,index+ModuleConf.LenType).toString()
         index = index + ModuleConf.LenType
 
-        packet.TTL = message.subarray(index,index+ModuleConf.LenTTL-1).toString()
+        packet.TTL = message.subarray(index,index+ModuleConf.LenTTL).toString()
         index = index + ModuleConf.LenTTL
 
-        packet.NextHop = message.subarray(index,index+ModuleConf.LenNextHop-1).toString()
+        packet.NextHop = message.subarray(index,index+ModuleConf.LenNextHop).toString()
         index = index + ModuleConf.LenNextHop
 
-        packet.Payload = message.subarray(index,index+ModuleConf.LenPayload-1).toString()
+        packet.Payload = message.subarray(index,index+ModuleConf.LenPayload).toString()
 
         console.log(packet.NetId.length, packet.Length.length, packet.Destination.length , packet.Source.length , packet.Type.length , packet.TTL.length ,packet.NextHop.length , packet.Payload.length)
         return packet
