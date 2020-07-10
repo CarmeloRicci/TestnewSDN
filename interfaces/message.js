@@ -19,19 +19,19 @@ class Message {
         return ""
     }
 
-    async get_message_for_paket (P){
-        const BNetId = await new Buffer.from(P.NetId)
-        const BLength = await new Buffer.from(P.Length)
-        const BDestination = await new Buffer.from(P.Destination)
-        const BSource = await new Buffer.from(P.Source)
-        const BType = await new Buffer.from(P.Type)
-        const BTTL = await new Buffer.from(P.TTL)
-        const BNextHop = await new Buffer.from(P.NextHop)
-        const BPayload = await new Buffer.from(P.Payload)
+    static get_message_for_paket (P){
+        const BNetId =  new Buffer.from(P.NetId)
+        const BLength =  new Buffer.from(P.Length)
+        const BDestination =  new Buffer.from(P.Destination)
+        const BSource =  new Buffer.from(P.Source)
+        const BType =  new Buffer.from(P.Type)
+        const BTTL =  new Buffer.from(P.TTL)
+        const BNextHop =  new Buffer.from(P.NextHop)
+        const BPayload =  new Buffer.from(P.Payload)
 
         const TotalLength = BNetId.length + BLength.length + BDestination.length + BSource.length + BType.length + BTTL.length + BNextHop.length + BPayload.length
 
-        const BufferMesage = await Buffer.concat([BNetId, BLength,BDestination,BSource,BType,BTTL,BNextHop,BPayload], TotalLength);
+        const BufferMesage =  Buffer.concat([BNetId, BLength,BDestination,BSource,BType,BTTL,BNextHop,BPayload], TotalLength);
 
         return BufferMesage
     }
