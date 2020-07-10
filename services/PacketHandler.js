@@ -19,14 +19,9 @@ class PacketHandler {
     static packet_handler(packet) {
         console.log(packet.Type,packet.Type.length)
 
-        let json = JSON.stringify(packet.Type);
-        console.log(json);
-
-        var type = JSON.parse(json)
-        
-
         //var type = decoder.write(packet.Type);
 
+        var type = packet.Type.replace('/\0/g', '')
         console.log(type,type.length)
 
         if (type == 0) {
