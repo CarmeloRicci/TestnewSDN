@@ -30,12 +30,10 @@ var StartListener = function (TypeListener, NodeConf) {
         var buf = Buffer.from(message);
     });
 
-    server.bind(Port, Ip);
-
-    //NetId, Length, Destination, Source, Type, TTL, NextHop, Payload
+    
     const p1 = new Packet.Packets(1,100,1,1,0,99,1,"Ciao");
     Packet.Packets.print_packets(p1);
-
+    server.bind(Port, Ip);
 }
 
 exports.StartListener = StartListener;
