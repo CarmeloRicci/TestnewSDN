@@ -9,7 +9,7 @@ var NodeConf = await ModuleReadConf.confnode; // map con tutti i parametri letti
 
 console.log('\n\n\t\t\t Sono il nodo ' + NodeConf.get('MyAddress') +' \n\n')
 
-ModuleListenerC.StartListener("Client Mode",ModuleGetIp.IpClient,2222);
-ModuleListenerS.StartListener("Station Mode",ModuleGetIp.IpServer,50007);
+await ModuleListenerC.StartListener("Client Mode",ModuleGetIp.IpClient,2222);
+await ModuleListenerS.StartListener("Station Mode",ModuleGetIp.IpServer,50007);
 
 }
