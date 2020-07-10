@@ -42,7 +42,7 @@ class PacketHandler {
         }
 
         switch (type) {
-            case 0:
+            case '0':
                 //console.log("Beacon");
                 break;
             case 1:
