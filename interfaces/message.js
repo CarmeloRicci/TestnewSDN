@@ -19,7 +19,7 @@ class Message {
         return ""
     }
 
-    async static get_message_for_paket (P){
+    async get_message_for_paket (P){
         const BNetId = await new Buffer.from(P.NetId)
         const BLength = await new Buffer.from(P.Length)
         const BDestination = await new Buffer.from(P.Destination)
