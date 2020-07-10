@@ -9,28 +9,28 @@ class Message {
 
         var packet = new ModulePackets.Packets();
         
-        packet.NetId = message.subarray(0,ModuleConf.LenNetId).toString('utf8')
+        packet.NetId = message.subarray(0,ModuleConf.LenNetId).toString('utf16le')
         index = index + ModuleConf.LenNetId
 
-        packet.Length = message.subarray(index,index+ModuleConf.LenLength).toString('utf8')
+        packet.Length = message.subarray(index,index+ModuleConf.LenLength).toString('utf16le')
         index = index + ModuleConf.LenLength
 
-        packet.Destination = message.subarray(index,index+ModuleConf.LenDestination).toString('utf8')
+        packet.Destination = message.subarray(index,index+ModuleConf.LenDestination).toString('utf16le')
         index = index + ModuleConf.LenDestination
 
-        packet.Source = message.subarray(index,index+ModuleConf.LenSource).toString('utf8')
+        packet.Source = message.subarray(index,index+ModuleConf.LenSource).toString('utf16le')
         index = index + ModuleConf.LenSource
 
-        packet.Type = message.subarray(index,index+ModuleConf.LenType).toString('utf8')
+        packet.Type = message.subarray(index,index+ModuleConf.LenType).toString('utf16le')
         index = index + ModuleConf.LenType
 
-        packet.TTL = message.subarray(index,index+ModuleConf.LenTTL).toString('utf8')
+        packet.TTL = message.subarray(index,index+ModuleConf.LenTTL).toString('utf16le')
         index = index + ModuleConf.LenTTL
 
-        packet.NextHop = message.subarray(index,index+ModuleConf.LenNextHop).toString('utf8')
+        packet.NextHop = message.subarray(index,index+ModuleConf.LenNextHop).toString('utf16le')
         index = index + ModuleConf.LenNextHop
 
-        packet.Payload = message.subarray(index,index+ModuleConf.LenPayload).toString('utf8')
+        packet.Payload = message.subarray(index,index+ModuleConf.LenPayload).toString('utf16le')
 
         console.log(packet.NetId.length, packet.Length.length, packet.Destination.length , packet.Source.length , packet.Type.length , packet.TTL.length ,packet.NextHop.length , packet.Payload.length)
         return packet

@@ -34,7 +34,7 @@ class PacketHandler {
         console.log (type)
 
         
-         type = String.fromCharCode(packet.Type)
+        type = String.fromCharCode(packet.Type)
         console.log(type,type.length)
 
         if (type == 0) {
