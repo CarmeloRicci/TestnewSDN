@@ -7,10 +7,9 @@ class PacketHandler {
     static packet_handler(packet) {
         console.log(packet.Type,packet.Type.length)
 
-        var type = 0
+        var type = packet.Type.toString('utf8');
 
         console.log(type,type.length)
-
 
         if (type == 0) {
             console.log("Beacon");
