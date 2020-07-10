@@ -23,6 +23,7 @@ var StartListener = function (TypeListener, NodeConf) {
     });
 
     server.bind(Port, Ip);
+    
     const p1 = new ModulePackets.Packets("001","100","001","001","000","099","001","Ciao");
     console.log(TypeListener + ': ' + ModulePackets.Packets.print_packets(p1))
 
