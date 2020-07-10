@@ -32,7 +32,8 @@ class Message {
 
         packet.Payload = message.subarray(index,index+ModuleConf.LenPayload).toString('utf8')
 
-        console.log(packet.NetId.length, packet.Length.length, packet.Destination.length , packet.Source.length , packet.Type.length , packet.TTL.length ,packet.NextHop.length , packet.Payload.length)
+        //console.log(packet.NetId.length, packet.Length.length, packet.Destination.length , packet.Source.length , packet.Type.length , packet.TTL.length ,packet.NextHop.length , packet.Payload.length)
+        
         return packet
 
     }
@@ -58,7 +59,7 @@ class Message {
         BPayload.write('' + [P.Payload])
 
         //console.log(BNetId.toString(), BLength.toString(), BDestination.toString(), BSource.toString(), BType.toString(), BTTL.toString(), BNextHop.toString(), BPayload.toString())
-        console.log(BNetId.length, BLength.length, BDestination.length , BSource.length , BType.length , BTTL.length ,BNextHop.length , BPayload.length)
+        //console.log(BNetId.length, BLength.length, BDestination.length , BSource.length , BType.length , BTTL.length ,BNextHop.length , BPayload.length)
 
         const TotalLength = BNetId.length + BLength.length + BDestination.length + BSource.length + BType.length + BTTL.length + BNextHop.length + BPayload.length
         const BufferMesage = Buffer.concat([BNetId, BLength, BDestination, BSource, BType, BTTL, BNextHop, BPayload], TotalLength);

@@ -19,19 +19,19 @@ class PacketHandler {
     static packet_handler(packet) {
         switch (packet.Type.toString().replace(/\0/g,'')) {
             case '0':
-                //console.log("Beacon");
+                console.log("Beacon");
                 break;
             case '1':
-                //console.log("Report");
+                console.log("Report");
                 break;
             case '2':
-                //console.log("OpenPath");
+                console.log("OpenPath");
                 break;
             case '3':
-                //console.log("Status");
+                console.log("Status");
                 break;
             case '4':
-                //console.log("Data");
+                console.log("Data");
                 break;
             default:
                 console.log("Error Packet Type");
