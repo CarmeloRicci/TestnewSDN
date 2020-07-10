@@ -9,7 +9,7 @@ var NodeConf = await ModuleReadConf.confnode; // map con tutti i parametri letti
 
 console.log('\n\n\t\tI am node ' + NodeConf.get('MyAddress') +'\n\t\tMy Client Address is: '+NodeConf.get('ClientIp')+'\n\t\tMy Server Address is: '+NodeConf.get('ServerIp')+ '\n')
 
-if ( NodeConf.get('SINK') == 1) {
+if ( NodeConf.get('SINK') == '1') {
     console.log('\n\t\t I am the Sink')
     await ModuleListenerC.StartListener("Client Mode",NodeConf);
 } else{
