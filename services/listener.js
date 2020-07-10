@@ -29,7 +29,7 @@ var StartListener = function (TypeListener, NodeConf) {
 
     var message = new buffer (ModuleMessage.Message.get_message_for_paket(p1))
     
-    server.send(message, 0, message.length, 5000, "192.168.27.1", function (err, bytes) {
+    server.send(message, 0, message.length, 5000, "10.10.0.11", function (err, bytes) {
         if (error) {
             //server.close();
         } else {
