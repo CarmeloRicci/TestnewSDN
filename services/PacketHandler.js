@@ -6,8 +6,8 @@ class PacketHandler {
 
     static packet_handler(packet) {
         console.log(packet.Type.toString(),packet.Type.toString().length)
-        switch (packet.Type.toString()) {
-            case '0':
+        switch (packet.Type) {
+            case TypeBeacon:
                 //console.log("Beacon");
                 break;
             case 1:
