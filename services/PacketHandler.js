@@ -6,7 +6,7 @@ class PacketHandler {
 
     static packet_handler(packet) {
         switch (packet.Type) {
-            case 0:
+            case '0':
                 //console.log("Beacon");
                 break;
             case 1:
