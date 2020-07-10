@@ -21,7 +21,7 @@ class PacketHandler {
 
         //var type = decoder.write(packet.Type);
 
-        var type = packet.Type.replace('/\0/g', '')
+        var type = packet.Type.replace('\0u0000', '')
         console.log(type,type.length)
 
         if (type == 0) {
