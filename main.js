@@ -9,13 +9,9 @@ async function start() {
 
     console.log('\n\n\t\tI am node ' + NodeConf.get('MyAddress') + '\n\t\tMy Client Address is: ' + NodeConf.get('ClientIp') + '\n\t\tMy Server Address is: ' + NodeConf.get('ServerIp') + '\n')
 
-    if (NodeConf.get('Sink') == 'YES') {
-        console.log('\n\t\t I am the Sink')
-        await ModuleListenerC.StartListener("Client Mode", NodeConf);
-    } else {
-        console.log('\n\t\t I am a Node')
-        await ModuleListenerS.StartListener("Station Mode", NodeConf);
-    }
+    await ModuleListenerC.StartListener("Client Mode", NodeConf);
+    await ModuleListenerS.StartListener("Station Mode", NodeConf);
+
 
 
 

@@ -18,13 +18,23 @@ var StartListener = function (TypeListener, NodeConf) {
     });
 
     server.on('message', function (message, remote) {
-        console.log(TypeListener + ': Receiver message from ' + remote.address + ':' + remote.port + ' - ' + message);
-        var buf = Buffer.from(message);
-
+        //console.log(TypeListener + ': Receiver message from ' + remote.address + ':' + remote.port + ' - ' + message);
+        //console.log (ModulePackets.Packets.print_packets(ModuleMessage.Message.get_packet_for_message(message) ) );
+        ModulePacketHandler.PacketHandler.packet_handler(ModuleMessage.Message.get_packet_for_message(message)); // Attivo il Packet Handle per il messaggio appena ricevuto
     });
-
     server.bind(Port, Ip);
-    const p1 = new ModulePackets.Packets(1,100,1,1,0,99,1,'Ciao');
+
+    if (NodeConf.get('Sink') == 'YES') {
+        console.log('\n\t\t I am the Sink\n\n')
+    } else {
+        console.log('\n\t\t I am a Node\n\n')
+    }
+
+
+
+
+
+    const p1 = new ModulePackets.Packets(1, 100, 1, 1, 0, 99, 1, 'Ciao');
     console.log(TypeListener + ': ' + ModulePackets.Packets.print_packets(p1))
 
     //var message = Buffer.concat([ModuleMessage.Message.get_message_for_paket(p1)], ModuleConf.LenLength);
@@ -34,9 +44,9 @@ var StartListener = function (TypeListener, NodeConf) {
         if (err) {
             //server.close();
         } else {
-          console.log('Data sent !!!');
+            console.log('Data sent !!!');
         }
-      });
+    });
 
 }
 

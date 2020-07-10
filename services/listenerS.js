@@ -2,15 +2,15 @@ var dgram = require('dgram');
 var server = dgram.createSocket('udp4');
 const ModulePackets = require('../interfaces/packets');
 const ModuleMessage = require('../interfaces/message');
+const ModulePacketHandler = require('../services/PacketHandler')
 
 var count = 0;
 
 var StartListener = function (TypeListener, NodeConf) {
-
   var Ip = NodeConf.get('ServerIp')
   var Port = NodeConf.get('ServerPort')
 
-  console.log(TypeListener + ': Ciao! questo è il listener ' + TypeListener + " che è in esecuzione all'indirizzo " + Ip + ' e porta: ' + Port);
+  //console.log(TypeListener + ': Ciao! questo è il listener ' + TypeListener + " che è in esecuzione all'indirizzo " + Ip + ' e porta: ' + Port);
 
   server.on('listening', function () {
     var address = server.address();
@@ -18,11 +18,9 @@ var StartListener = function (TypeListener, NodeConf) {
   });
 
   server.on('message', function (message, remote) {
-    console.log('[' + count + '] ' + remote.address + ':' + remote.port + ' - ' + message);
-    count++;
-    var buf = Buffer.from(message);
-    console.log (ModulePackets.Packets.print_packets(ModuleMessage.Message.get_packet_for_message(message) ) );
-
+    //console.log(TypeListener + ': Receiver message from ' + remote.address + ':' + remote.port + ' - ' + message);
+    //console.log (ModulePackets.Packets.print_packets(ModuleMessage.Message.get_packet_for_message(message) ) );
+    ModulePacketHandler.PacketHandler.packet_handler(ModuleMessage.Message.get_packet_for_message(message)); // Attivo il Packet Handle per il messaggio appena ricevuto
   });
 
   server.bind(Port, Ip);

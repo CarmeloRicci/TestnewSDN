@@ -1,13 +1,34 @@
 const Modulemessage = require('../interfaces/message');
+const ModulePackets = require('./packets');
+const ModuleConf = require('./config');
 
-// class PacketHandler {
-//     async packet_handler(message) {
-//         Modulemessage.
-//     }
+class PacketHandler {
+
+    static packet_handler(packet) {
+        switch (packet.Type) {
+            case 0:
+                //console.log("Beacon");
+                break;
+            case 1:
+                //console.log("Report");
+                break;
+            case 2:
+                //console.log("OpenPath");
+                break;
+            case 3:
+                //console.log("Status");
+                break;
+            case 4:
+                //console.log("Data");
+                break;
+            default:
+                console.log("Error Packet Type");
+        }
 
 
 
+    }
 
-// }
+}
 
-// exports.PacketHandler = PacketHandler;
+exports.PacketHandler = PacketHandler;
