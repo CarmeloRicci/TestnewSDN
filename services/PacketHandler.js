@@ -30,11 +30,11 @@ class PacketHandler {
         console.log (type)
         //console.log("after  (stringified): " + JSON.stringify(data.test));
 
-        type = JSON.parse(type)
+
         console.log (type)
 
         
-        type = String.fromCharCode(packet.Type)
+
         console.log(type,type.length)
 
         if (type == 0) {
