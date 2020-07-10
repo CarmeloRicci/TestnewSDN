@@ -1,7 +1,7 @@
 const Modulemessage = require('../interfaces/message');
 const ModulePackets = require('../interfaces/packets');
 const ModuleConf = require('../interfaces/config');
-const StringDecoder = require('string_decoder');
+const { StringDecoder } = require('string_decoder');
 const decode = require('querystring');
 const decoder = new StringDecoder('utf8');
 
