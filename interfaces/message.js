@@ -7,7 +7,7 @@ class Message {
         console.log(message.length)
         var index = 0;
 
-        var packet = new Packets();
+        var packet = new ModulePackets.Packets();
         
         packet.NetId = message.subarray(0,ModuleConf.LenNetId).toString()
         index = index + ModuleConf.LenNetId
