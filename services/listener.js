@@ -27,7 +27,7 @@ var StartListener = function (TypeListener, NodeConf) {
 
     if (NodeConf.get('Sink') == '1') {
         console.log('\n\t\t I am the Sink\n\n')
-        ModuleBeacon.CreateBeaconMessage(NodeConf.get('MyAddress'),NodeConf.get('ServerIp'))
+        ModuleBeacon.Beacon.CreateBeaconMessage(NodeConf.get('MyAddress'),NodeConf.get('ServerIp'))
 
     } else if((NodeConf.get('Sink') == '0')) {
         console.log('\n\t\t I am a Node\n\n')

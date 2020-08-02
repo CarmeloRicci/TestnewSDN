@@ -16,5 +16,4 @@ class Beacon {
 
 }
 
-exports.StartBeaconProcess = StartBeaconProcess;
-exports.CreateBeaconMessage = CreateBeaconMessage;
+exports.Beacon = Beacon;
