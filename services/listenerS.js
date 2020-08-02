@@ -59,7 +59,7 @@ var StartListener = function (TypeListener, NodeConf, FlagRunBeaconProcess) {
     //   }, 1000);
 
 
-  }
+  // }
 
 
 
