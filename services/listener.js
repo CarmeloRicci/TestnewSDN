@@ -10,8 +10,11 @@ const ModuleConf = require('../interfaces/config');
 const ModuleBeacon = require('../services/Beacon');
 
 
-var StartListener = function (TypeListener, NodeConf, FlagRunBeaconProcess) {
+var FlagRunBeaconProcess = 0;
 
+var StartListener = function (TypeListener, NodeConf, FlagRunBeacon) {
+
+    FlagRunBeaconProcess = FlagRunBeacon
     var Ip = NodeConf.get('ClientIp')
     var Port = NodeConf.get('ClientPort')
 
