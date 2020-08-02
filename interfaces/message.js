@@ -35,7 +35,6 @@ class Message {
         //console.log(packet.NetId.length, packet.Length.length, packet.Destination.length , packet.Source.length , packet.Type.length , packet.TTL.length ,packet.NextHop.length , packet.Payload.length)
         
         return packet
-
     }
 
     static get_message_for_paket(P) {

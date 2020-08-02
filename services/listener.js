@@ -11,14 +11,10 @@ const ModuleBeacon = require('../services/Beacon');
 const ModuleMain = require('../main');
 
 
-var FlagRunBeaconProcess = 0;
 
 class ListenClient {
-    static StartListener(TypeListener, NodeConf, FlagRunBeacon) {
+    static StartListener(TypeListener, NodeConf, FlagRunBeaconProcess) {
 
-        console.log(NodeConf.get("ClientIp"))
-
-        FlagRunBeaconProcess = FlagRunBeacon
         var Ip = NodeConf.get('ClientIp')
         var Port = NodeConf.get('ClientPort')
 
@@ -30,12 +26,12 @@ class ListenClient {
         server.on('message', function (message, remote) {
             console.log(TypeListener + ': Receiver message from ' + remote.address + ':' + remote.port + ' - ' + message);
             //console.log (ModulePackets.Packets.print_packets(ModuleMessage.Message.get_packet_for_message(message) ) );
-            ModulePacketHandler.PacketHandler.packet_handler(ModuleMessage.Message.get_packet_for_message(message)); // Attivo il Packet Handle per il messaggio appena ricevuto
+            ModulePacketHandler.PacketHandler.packet_handler(ModuleMessage.Message.get_packet_for_message(message),NodeConf); // Attivo il Packet Handle per il messaggio appena ricevuto
         });
 
         nc.udp().port(parseInt(NodeConf.get('ClientBroadcastPort'))).listen().on('data', function (rinfo, data) {
             //console.log('Got', data.toString(), 'from', rinfo.address, rinfo.port)
-            ModulePacketHandler.PacketHandler.packet_handler(ModuleMessage.Message.get_packet_for_message(data)); // Attivo il Packet Handle per il messaggio appena ricevuto
+            ModulePacketHandler.PacketHandler.packet_handler(ModuleMessage.Message.get_packet_for_message(data),NodeConf); // Attivo il Packet Handle per il messaggio appena ricevuto
         })
 
         server.bind(Port, Ip, function () {
