@@ -27,8 +27,9 @@ var StartListener = function (TypeListener, NodeConf, FlagRunBeaconProcess) {
 
   server.bind(Port, Ip);
   if (FlagRunBeaconProcess == 1) {
-    console.log("OK!!!")
+    console.log("OK 1 !!!")
     var message = ModuleMessage.Message.get_message_for_paket( ModuleBeacon.Beacon.CreateBeaconMessage(NodeConf.get('MyAddress'), NodeConf.get('ServerIp')) )
+    console.log("OK 2 !!!")
     ModuleBeacon.Beacon.StartBeaconProcess(message,NodeConf.get('ServerPort'), NodeConf.get('ServerBroadcast'))
 
   // if (FlagRunBeaconProcess == 1) {
