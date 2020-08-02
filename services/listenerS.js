@@ -38,7 +38,7 @@ var StartListener = function (TypeListener, NodeConf, FlagRunBeaconProcess) {
   });
 
   if (FlagRunBeaconProcess == 1) {
-    BeaconProcess(NodeConf).then
+    BeaconProcess(NodeConf)
   }
 }
 
