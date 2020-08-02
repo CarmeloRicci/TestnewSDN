@@ -50,7 +50,7 @@ var BeaconProcess = function (){
     if (err) {
       //Broadcast.close();
     } else {
-      console.log('CreateBeaconMessage -> Beacon sent ');
+      console.log('CreateBeaconMessage -> Beacon sent');
     }
   });
   setTimeout(() => { BeaconProcess() }, 6000);
