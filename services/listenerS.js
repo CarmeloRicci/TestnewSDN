@@ -37,9 +37,9 @@ class ListenServer {
       server.setBroadcast(true);
     });
 
-    if (FlagRunBeaconProcess == 1) {
-      BeaconProcess(NodeConf);
-    }
+    // if (FlagRunBeaconProcess == 1) {
+    //   BeaconProcess(NodeConf);
+    // }
 
   }
 
