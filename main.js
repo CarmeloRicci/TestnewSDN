@@ -19,7 +19,7 @@ async function start() {
     } else if ((NodeConf.get('Sink') == '0')) {
         console.log('\n\t\t I am a Node\n\n')
         if (NodeConf.get('ClientIp') != undefined)
-            await ModuleListenerC.ListenServer.StartListener("Client Mode", NodeConf, 0);
+            await ModuleListenerC.ListenClient.StartListener("Client Mode", NodeConf, 0);
         if (NodeConf.get('ServerIp') != undefined)
             await ModuleListenerS.ListenServer.StartListener("Station Mode", NodeConf, 0);
 
