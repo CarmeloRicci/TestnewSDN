@@ -25,33 +25,21 @@ var StartListener = function (TypeListener, NodeConf) {
     });
     server.bind(Port, Ip);
 
-    if (NodeConf.get('Sink') == '1') {
-        console.log('\n\t\t I am the Sink\n\n')
-        ModuleBeacon.Beacon.CreateBeaconMessage(NodeConf.get('MyAddress'),NodeConf.get('ServerIp'))
-
-    } else if((NodeConf.get('Sink') == '0')) {
-        console.log('\n\t\t I am a Node\n\n')
-        var beacon_process_start=0;
-
-    } else {
-        console.log('\n\t\t Undefined Node\n\n')
-        var beacon_process_start=0;
-    }
 
 
-    const p1 = new ModulePackets.Packets(1, 100, 1, 1, 0, 99, 1, 'Ciao');
-    console.log(TypeListener + ': ' + ModulePackets.Packets.print_packets(p1))
+    // const p1 = new ModulePackets.Packets(1, 100, 1, 1, 0, 99, 1, 'Ciao');
+    // console.log(TypeListener + ': ' + ModulePackets.Packets.print_packets(p1))
 
-    //var message = Buffer.concat([ModuleMessage.Message.get_message_for_paket(p1)], ModuleConf.LenLength);
-    var message = ModuleMessage.Message.get_message_for_paket(p1)
+    // //var message = Buffer.concat([ModuleMessage.Message.get_message_for_paket(p1)], ModuleConf.LenLength);
+    // var message = ModuleMessage.Message.get_message_for_paket(p1)
 
-    server.send(message, 0, message.length, 5000, "10.10.0.11", function (err, bytes) {
-        if (err) {
-            //server.close();
-        } else {
-            console.log('Data sent !!!');
-        }
-    });
+    // server.send(message, 0, message.length, 5000, "10.10.0.11", function (err, bytes) {
+    //     if (err) {
+    //         //server.close();
+    //     } else {
+    //         console.log('Data sent !!!');
+    //     }
+    // });
 
 }
 
