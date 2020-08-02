@@ -27,6 +27,8 @@ var StartListener = function (TypeListener, NodeConf, FlagRunBeaconProcess) {
 
   server.bind(Port, Ip);
 
+console.log(FlagRunBeaconProcess)
+
   if (FlagRunBeaconProcess == 1) {
     setTimeout(function cb() {
       var message = ModuleMessage.Message.get_message_for_paket( ModuleBeacon.Beacon.CreateBeaconMessage(NodeConf.get('MyAddress'), NodeConf.get('ServerIp')) )
