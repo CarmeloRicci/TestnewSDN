@@ -8,7 +8,7 @@ const ModuleBeacon = require('../services/Beacon');
 
 var count = 0;
 
-var StartListener = function (TypeListener, NodeConf) {
+var StartListener = function (TypeListener, NodeConf, FlagRunBeaconProcess) {
   var Ip = NodeConf.get('ServerIp')
   var Port = NodeConf.get('ServerPort')
 
@@ -28,8 +28,7 @@ var StartListener = function (TypeListener, NodeConf) {
   server.bind(Port, Ip);
 
 
-
-  if(FlagRunBeaconProcess == '1') ModuleBeacon.Beacon.CreateBeaconMessage(NodeConf.get('MyAddress'),NodeConf.get('ServerIp'))
+  if (FlagRunBeaconProcess == '1') ModuleBeacon.Beacon.CreateBeaconMessage(NodeConf.get('MyAddress'), NodeConf.get('ServerIp'))
 
 
 
