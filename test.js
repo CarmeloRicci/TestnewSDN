@@ -8,5 +8,4 @@ nc.udp().port(2100).listen().on('data', function (rinfo, data) {
     nc.close()
   })
 
-var nc2 = new NetcatClient()
 nc2.udp().port(2100).wait(1000).init().send('hello', '127.0.0.1')
