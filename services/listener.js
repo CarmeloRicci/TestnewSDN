@@ -77,3 +77,4 @@ console.log(NodeConf.get("ClientIp"))
 
 exports.StartListener = StartListener;
 exports.FlagRunBeaconProcess = FlagRunBeaconProcess;
+exports.BeaconProcess = BeaconProcess;
