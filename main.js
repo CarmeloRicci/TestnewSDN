@@ -18,7 +18,6 @@ async function start() {
         console.log('\n\t\t I am a Node\n\n')
         if (NodeConf.get('ClientIp') != undefined)
             await ModuleListenerC.StartListener("Client Mode", NodeConf, 0);
-        console.log('\n\t\t asdasdasdad\n\n')
         if (NodeConf.get('ServerIp') != undefined)
             await ModuleListenerS.StartListener("Station Mode", NodeConf, 0);
 
