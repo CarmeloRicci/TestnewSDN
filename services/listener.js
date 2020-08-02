@@ -12,11 +12,11 @@ const ModuleBeacon = require('../services/Beacon');
 
 var FlagRunBeaconProcess = 0;
 
-var StartListener = function (TypeListener, NodeConf, FlagRunBeacon) {
+var StartListener = function (TypeListener, FlagRunBeacon) {
 
     FlagRunBeaconProcess = FlagRunBeacon
-    var Ip = NodeConf.get('ClientIp')
-    var Port = NodeConf.get('ClientPort')
+    var Ip = ModuleMain.NodeConf.get('ClientIp')
+    var Port = ModuleMain.NodeConf.get('ClientPort')
 
     server.on('listening', function () {
         var address = server.address();
@@ -29,7 +29,7 @@ var StartListener = function (TypeListener, NodeConf, FlagRunBeacon) {
         ModulePacketHandler.PacketHandler.packet_handler(ModuleMessage.Message.get_packet_for_message(message)); // Attivo il Packet Handle per il messaggio appena ricevuto
     });
 
-    nc.udp().port( parseInt(NodeConf.get('ClientBroadcastPort')) ).listen().on('data', function (rinfo, data) {
+    nc.udp().port( parseInt(ModuleMain.NodeConf.get('ClientBroadcastPort')) ).listen().on('data', function (rinfo, data) {
         //console.log('Got', data.toString(), 'from', rinfo.address, rinfo.port)
         ModulePacketHandler.PacketHandler.packet_handler(ModuleMessage.Message.get_packet_for_message(data)); // Attivo il Packet Handle per il messaggio appena ricevuto
       })
@@ -42,7 +42,7 @@ var StartListener = function (TypeListener, NodeConf, FlagRunBeacon) {
 
     function BeaconProcess (){
 
-        var message = ModuleMessage.Message.get_message_for_paket(ModuleBeacon.Beacon.CreateBeaconMessage(NodeConf.get('MyAddress'), NodeConf.get('ClientIp')))
+        var message = ModuleMessage.Message.get_message_for_paket(ModuleBeacon.Beacon.CreateBeaconMessage(ModuleMain.NodeConf.get('MyAddress'), ModuleMain.NodeConf.get('ClientIp')))
         server.send(message, 0, message.length, ModuleMain.NodeConf.get('ClientBroadcastPort'), ModuleMain.NodeConf.get('ClientBroadcastIp'), function (err, bytes) {
           if (err) {
             //Broadcast.close();
