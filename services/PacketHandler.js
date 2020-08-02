@@ -14,8 +14,8 @@ class PacketHandler {
         switch (packet.Type.toString().replace(/\0/g,'')) {
             case '0':
                 console.log("Beacon");
-                ModuleListenerC.BeaconProcess(NodeConf);
-                ModuleListenerS.BeaconProcess(NodeConf);
+                ModuleListenerC.ListenClient.BeaconProcess(NodeConf);
+                ModuleListenerS.ListenServer.BeaconProcess(NodeConf);
                 break;
             case '1':
                 console.log("Report");

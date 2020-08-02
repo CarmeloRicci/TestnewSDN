@@ -13,48 +13,49 @@ const ModuleMain = require('../main');
 
 var FlagRunBeaconProcess = 0;
 
-var StartListener = function (TypeListener, NodeConf, FlagRunBeacon) {
+class ListenClient {
+    static StartListener(TypeListener, NodeConf, FlagRunBeacon) {
 
-console.log(NodeConf.get("ClientIp"))
+        console.log(NodeConf.get("ClientIp"))
 
-    FlagRunBeaconProcess = FlagRunBeacon
-    var Ip = NodeConf.get('ClientIp')
-    var Port = NodeConf.get('ClientPort')
+        FlagRunBeaconProcess = FlagRunBeacon
+        var Ip = NodeConf.get('ClientIp')
+        var Port = NodeConf.get('ClientPort')
 
-    server.on('listening', function () {
-        var address = server.address();
-        console.log(TypeListener + ': UDP Server listening on ' + address.address + ':' + address.port);
-    });
+        server.on('listening', function () {
+            var address = server.address();
+            console.log(TypeListener + ': UDP Server listening on ' + address.address + ':' + address.port);
+        });
 
-    server.on('message', function (message, remote) {
-        console.log(TypeListener + ': Receiver message from ' + remote.address + ':' + remote.port + ' - ' + message);
-        //console.log (ModulePackets.Packets.print_packets(ModuleMessage.Message.get_packet_for_message(message) ) );
-        ModulePacketHandler.PacketHandler.packet_handler(ModuleMessage.Message.get_packet_for_message(message)); // Attivo il Packet Handle per il messaggio appena ricevuto
-    });
+        server.on('message', function (message, remote) {
+            console.log(TypeListener + ': Receiver message from ' + remote.address + ':' + remote.port + ' - ' + message);
+            //console.log (ModulePackets.Packets.print_packets(ModuleMessage.Message.get_packet_for_message(message) ) );
+            ModulePacketHandler.PacketHandler.packet_handler(ModuleMessage.Message.get_packet_for_message(message)); // Attivo il Packet Handle per il messaggio appena ricevuto
+        });
 
-    nc.udp().port( parseInt(NodeConf.get('ClientBroadcastPort')) ).listen().on('data', function (rinfo, data) {
-        //console.log('Got', data.toString(), 'from', rinfo.address, rinfo.port)
-        ModulePacketHandler.PacketHandler.packet_handler(ModuleMessage.Message.get_packet_for_message(data)); // Attivo il Packet Handle per il messaggio appena ricevuto
-      })
+        nc.udp().port(parseInt(NodeConf.get('ClientBroadcastPort'))).listen().on('data', function (rinfo, data) {
+            //console.log('Got', data.toString(), 'from', rinfo.address, rinfo.port)
+            ModulePacketHandler.PacketHandler.packet_handler(ModuleMessage.Message.get_packet_for_message(data)); // Attivo il Packet Handle per il messaggio appena ricevuto
+        })
 
-    server.bind(Port, Ip, function () {
-        server.setBroadcast(true);
-        //server.addMembership(NodeConf.get('ClientBroadcastIp'),NodeConf.get('ClientIp'))
-    });
+        server.bind(Port, Ip, function () {
+            server.setBroadcast(true);
+            //server.addMembership(NodeConf.get('ClientBroadcastIp'),NodeConf.get('ClientIp'))
+        });
 
-
-    var BeaconProcessExport = function BeaconProcess (NodeConf){
+    }
+    static BeaconProcess(NodeConf) {
 
         var message = ModuleMessage.Message.get_message_for_paket(ModuleBeacon.Beacon.CreateBeaconMessage(NodeConf.get('MyAddress'), NodeConf.get('ClientIp')))
         server.send(message, 0, message.length, NodeConf.get('ClientBroadcastPort'), NodeConf.get('ClientBroadcastIp'), function (err, bytes) {
-          if (err) {
-            //Broadcast.close();
-          } else {
-            console.log('CreateBeaconMessage -> Beacon sent ');
-          }
+            if (err) {
+                //Broadcast.close();
+            } else {
+                console.log('CreateBeaconMessage -> Beacon sent ');
+            }
         });
         setTimeout(() => { BeaconProcess(NodeConf) }, 6000);
-      }
+    }
 
 
 
@@ -73,8 +74,4 @@ console.log(NodeConf.get("ClientIp"))
     // });
 
 }
-
-
-exports.StartListener = StartListener;
-exports.FlagRunBeaconProcess = FlagRunBeaconProcess;
-exports.BeaconProcessExport = BeaconProcessExport;
+exports.ListenClient = ListenClient;
