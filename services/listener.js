@@ -24,7 +24,12 @@ var StartListener = function (TypeListener, NodeConf, FlagRunBeaconProcess) {
         ModulePacketHandler.PacketHandler.packet_handler(ModuleMessage.Message.get_packet_for_message(message)); // Attivo il Packet Handle per il messaggio appena ricevuto
     });
 
-    server.bind(Port, Ip);
+    //server.bind(Port, Ip);
+
+    server.bind(Port, Ip, function () {
+        server.setBroadcast(true);
+      });
+  
 
     // const p1 = new ModulePackets.Packets(1, 100, 1, 1, 0, 99, 1, 'Ciao');
     // console.log(TypeListener + ': ' + ModulePackets.Packets.print_packets(p1))
