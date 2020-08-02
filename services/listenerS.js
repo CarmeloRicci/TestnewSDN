@@ -29,11 +29,11 @@ var StartListener = function (TypeListener, NodeConf, FlagRunBeaconProcess) {
   //   ModulePacketHandler.PacketHandler.packet_handler(ModuleMessage.Message.get_packet_for_message(message)); // Attivo il Packet Handle per il messaggio appena ricevuto
   // });
 
-  // nc.udp().port(5000).listen().on('data', function (rinfo, data) {
-  //   console.log('Got', data.toString(), 'from', rinfo.address, rinfo.port)
-  //   ModulePacketHandler.PacketHandler.packet_handler(ModuleMessage.Message.get_packet_for_message(data)); // Attivo il Packet Handle per il messaggio appena ricevuto
-  //   nc.close()
-  // })
+  nc.udp().port(5000).listen().on('data', function (rinfo, data) {
+    console.log('Got', data.toString(), 'from', rinfo.address, rinfo.port)
+    ModulePacketHandler.PacketHandler.packet_handler(ModuleMessage.Message.get_packet_for_message(data)); // Attivo il Packet Handle per il messaggio appena ricevuto
+    nc.close()
+  })
 
   //server.bind(Port, Ip);
 
@@ -50,7 +50,7 @@ var StartListener = function (TypeListener, NodeConf, FlagRunBeaconProcess) {
     console.log("OK 1 !!!")
     var message = ModuleMessage.Message.get_message_for_paket(ModuleBeacon.Beacon.CreateBeaconMessage(NodeConf.get('MyAddress'), NodeConf.get('ServerIp')))
 
-    nc.udp().port(5000).send('hello', '10.10.0.5')
+    nc.udp().port(5000).wait(1).init().send('hello', '10.10.0.5')
 
 
     // server.send(message, 0, message.length, NodeConf.get('ServerPort'), NodeConf.get('ServerBroadcast'), function (err, bytes) {
