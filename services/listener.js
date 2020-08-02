@@ -43,7 +43,7 @@ console.log(NodeConf.get("ClientIp"))
     });
 
 
-    function BeaconProcess (NodeConf){
+    var BeaconProcessExport = function BeaconProcess (NodeConf){
 
         var message = ModuleMessage.Message.get_message_for_paket(ModuleBeacon.Beacon.CreateBeaconMessage(NodeConf.get('MyAddress'), NodeConf.get('ClientIp')))
         server.send(message, 0, message.length, NodeConf.get('ClientBroadcastPort'), NodeConf.get('ClientBroadcastIp'), function (err, bytes) {
@@ -77,4 +77,4 @@ console.log(NodeConf.get("ClientIp"))
 
 exports.StartListener = StartListener;
 exports.FlagRunBeaconProcess = FlagRunBeaconProcess;
-exports.BeaconProcess = BeaconProcess;
+exports.BeaconProcessExport = BeaconProcessExport;
