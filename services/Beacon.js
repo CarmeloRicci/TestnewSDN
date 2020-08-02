@@ -1,4 +1,6 @@
-
+const Modulemessage = require('../interfaces/message');
+const ModulePackets = require('../interfaces/packets');
+const ModuleConf = require('../interfaces/config');
 
 class Beacon {
 
