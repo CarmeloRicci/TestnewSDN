@@ -44,7 +44,7 @@ var StartListener = function (TypeListener, NodeConf, FlagRunBeaconProcess) {
 function BeaconProcess (NodeConf){
 
   var message = ModuleMessage.Message.get_message_for_paket(ModuleBeacon.Beacon.CreateBeaconMessage(NodeConf.get('MyAddress'), NodeConf.get('ServerIp')))
-  server.send(message, 0, message.length, NodeConf.get('ServerBroadcastPort'), NodeConf.get('ServerBroadcastIp'), function (err, bytes) {
+  server.send(message, 0, message.length, 5000, '10.10.0.255', function (err, bytes) {
     if (err) {
       //Broadcast.close();
     } else {
