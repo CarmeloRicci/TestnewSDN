@@ -1,3 +1,6 @@
+const NetcatServer = require('netcat/server')
+const NetcatClient = require('netcat/client')
+const nc = new NetcatServer()
 const dgram = require('dgram');
 const server = dgram.createSocket('udp4');
 const ModulePackets = require('../interfaces/packets');
@@ -18,17 +21,24 @@ var StartListener = function (TypeListener, NodeConf, FlagRunBeaconProcess) {
         console.log(TypeListener + ': UDP Server listening on ' + address.address + ':' + address.port);
     });
 
-    server.on('message', function (message, remote) {
-        console.log(TypeListener + ': Receiver message from ' + remote.address + ':' + remote.port + ' - ' + message);
-        //console.log (ModulePackets.Packets.print_packets(ModuleMessage.Message.get_packet_for_message(message) ) );
-        ModulePacketHandler.PacketHandler.packet_handler(ModuleMessage.Message.get_packet_for_message(message)); // Attivo il Packet Handle per il messaggio appena ricevuto
-    });
+    // server.on('message', function (message, remote) {
+    //     console.log(TypeListener + ': Receiver message from ' + remote.address + ':' + remote.port + ' - ' + message);
+    //     //console.log (ModulePackets.Packets.print_packets(ModuleMessage.Message.get_packet_for_message(message) ) );
+    //     ModulePacketHandler.PacketHandler.packet_handler(ModuleMessage.Message.get_packet_for_message(message)); // Attivo il Packet Handle per il messaggio appena ricevuto
+    // });
 
-    //server.bind(Port, Ip);
+    nc.udp().port(5000).listen().on('data', function (rinfo, data) {
+        console.log('Got', data.toString(), 'from', rinfo.address, rinfo.port)
+        ModulePacketHandler.PacketHandler.packet_handler(ModuleMessage.Message.get_packet_for_message(data)); // Attivo il Packet Handle per il messaggio appena ricevuto
+        nc.close()
+      })
+    
+
+    // server.bind(Port, Ip);
 
       server.bind(Port, Ip, function () {
         server.setBroadcast(true);
-        server.addMembership(NodeConf.get('ClientBroadcast'));
+        //server.addMembership(NodeConf.get('ClientBroadcast'));
       });
 
     // const p1 = new ModulePackets.Packets(1, 100, 1, 1, 0, 99, 1, 'Ciao');
