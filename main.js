@@ -12,14 +12,15 @@ async function start() {
     if (NodeConf.get('Sink') == '1') {
         console.log('\n\t\t I am the Sink\n\n')
         if (NodeConf.get('ServerIp') != undefined)
-        await ModuleListenerS.StartListener("Station Mode", NodeConf,1);
+            await ModuleListenerS.StartListener("Station Mode", NodeConf, 1);
 
-    } else if((NodeConf.get('Sink') == '0')) {
+    } else if ((NodeConf.get('Sink') == '0')) {
         console.log('\n\t\t I am a Node\n\n')
         if (NodeConf.get('ClientIp') != undefined)
-        await ModuleListenerC.StartListener("Client Mode", NodeConf,0);
+            await ModuleListenerC.StartListener("Client Mode", NodeConf, 0);
+        console.log('\n\t\t asdasdasdad\n\n')
         if (NodeConf.get('ServerIp') != undefined)
-        await ModuleListenerS.StartListener("Station Mode", NodeConf,0);
+            await ModuleListenerS.StartListener("Station Mode", NodeConf, 0);
 
     } else {
         console.log('\n\t\t Undefined Node\n\n')
