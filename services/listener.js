@@ -26,7 +26,7 @@ var StartListener = function (TypeListener, NodeConf, FlagRunBeaconProcess) {
 
     //server.bind(Port, Ip);
 
-    server.bind(Port, Ip, function () {
+    server.bind(Port, function () {
         server.setBroadcast(true);
         server.addMembership('10.10.0.255');
       });
