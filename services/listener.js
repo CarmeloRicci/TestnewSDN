@@ -8,7 +8,7 @@ const ModuleBeacon = require('../services/Beacon');
 
 var count = 0;
 
-var StartListener = function (TypeListener, NodeConf) {
+var StartListener = function (TypeListener, NodeConf, FlagRunBeaconProcess) {
 
     var Ip = NodeConf.get('ClientIp')
     var Port = NodeConf.get('ClientPort')
@@ -24,6 +24,8 @@ var StartListener = function (TypeListener, NodeConf) {
         ModulePacketHandler.PacketHandler.packet_handler(ModuleMessage.Message.get_packet_for_message(message)); // Attivo il Packet Handle per il messaggio appena ricevuto
     });
     server.bind(Port, Ip);
+
+    if(FlagRunBeaconProcess == '1') ModuleBeacon.Beacon.CreateBeaconMessage(NodeConf.get('MyAddress'),NodeConf.get('ServerIp'))
 
 
 

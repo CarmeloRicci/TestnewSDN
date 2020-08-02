@@ -1,8 +1,10 @@
-var dgram = require('dgram');
-var server = dgram.createSocket('udp4');
+const dgram = require('dgram');
+const server = dgram.createSocket('udp4');
 const ModulePackets = require('../interfaces/packets');
 const ModuleMessage = require('../interfaces/message');
-const ModulePacketHandler = require('../services/PacketHandler')
+const ModulePacketHandler = require('../services/PacketHandler');
+const ModuleConf = require('../interfaces/config');
+const ModuleBeacon = require('../services/Beacon');
 
 var count = 0;
 

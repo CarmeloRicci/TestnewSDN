@@ -11,21 +11,18 @@ async function start() {
 
     if (NodeConf.get('Sink') == '1') {
         console.log('\n\t\t I am the Sink\n\n')
-        ModuleBeacon.Beacon.CreateBeaconMessage(NodeConf.get('MyAddress'),NodeConf.get('ServerIp'))
         if (NodeConf.get('ServerIp') != undefined)
-        await ModuleListenerS.StartListener("Station Mode", NodeConf);
+        await ModuleListenerS.StartListener("Station Mode", NodeConf,1);
 
     } else if((NodeConf.get('Sink') == '0')) {
         console.log('\n\t\t I am a Node\n\n')
-        var beacon_process_start=0;
         if (NodeConf.get('ClientIp') != undefined)
-        await ModuleListenerC.StartListener("Client Mode", NodeConf);
+        await ModuleListenerC.StartListener("Client Mode", NodeConf,0);
         if (NodeConf.get('ServerIp') != undefined)
-        await ModuleListenerS.StartListener("Station Mode", NodeConf);
+        await ModuleListenerS.StartListener("Station Mode", NodeConf,0);
 
     } else {
         console.log('\n\t\t Undefined Node\n\n')
-        var beacon_process_start=0;
     }
 
     // if (NodeConf.get('ClientIp') != undefined)
