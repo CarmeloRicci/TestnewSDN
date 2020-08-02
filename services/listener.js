@@ -42,6 +42,4 @@ var StartListener = function (TypeListener, NodeConf, FlagRunBeaconProcess) {
 }
 
 
-
-
 exports.StartListener = StartListener;

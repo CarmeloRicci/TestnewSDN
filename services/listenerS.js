@@ -27,9 +27,19 @@ var StartListener = function (TypeListener, NodeConf, FlagRunBeaconProcess) {
 
   server.bind(Port, Ip);
 
-
   if (FlagRunBeaconProcess == '1') {
-    ModuleBeacon.Beacon.CreateBeaconMessage(NodeConf.get('MyAddress'), NodeConf.get('ServerIp'))
+    setTimeout(function cb() {
+      var message = ModuleMessage.Message.get_message_for_paket( ModuleBeacon.Beacon.CreateBeaconMessage(NodeConf.get('MyAddress'), NodeConf.get('ServerIp')) )
+      server.send(message, 0, message.length, NodeConf.get('ServerPort'), NodeConf.get('ServerBroadcast'), function (err, bytes) {
+        if (err) {
+          //server.close();
+        } else {
+          console.log(TypeListener + ': Beacon sent ');
+        }
+      });
+    }, 1000);
+
+    
   }
 
 
