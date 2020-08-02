@@ -29,11 +29,11 @@ var StartListener = function (TypeListener, NodeConf, FlagRunBeaconProcess) {
   //   ModulePacketHandler.PacketHandler.packet_handler(ModuleMessage.Message.get_packet_for_message(message)); // Attivo il Packet Handle per il messaggio appena ricevuto
   // });
 
-  nc.udp().port(5000).listen().on('data', function (rinfo, data) {
-    console.log('Got', data.toString(), 'from', rinfo.address, rinfo.port)
-    ModulePacketHandler.PacketHandler.packet_handler(ModuleMessage.Message.get_packet_for_message(data)); // Attivo il Packet Handle per il messaggio appena ricevuto
-    nc.close()
-  })
+  // nc.udp().port(5000).listen().on('data', function (rinfo, data) {
+  //   console.log('Got', data.toString(), 'from', rinfo.address, rinfo.port)
+  //   ModulePacketHandler.PacketHandler.packet_handler(ModuleMessage.Message.get_packet_for_message(data)); // Attivo il Packet Handle per il messaggio appena ricevuto
+  //   nc.close()
+  // })
 
   //server.bind(Port, Ip);
 
