@@ -15,6 +15,8 @@ var FlagRunBeaconProcess = 0;
 
 var StartListener = function (TypeListener, FlagRunBeacon) {
 
+console.log(ModuleMain.NodeConf.get("ClientIp"))
+
     FlagRunBeaconProcess = FlagRunBeacon
     var Ip = ModuleMain.NodeConf.get('ClientIp')
     var Port = ModuleMain.NodeConf.get('ClientPort')
