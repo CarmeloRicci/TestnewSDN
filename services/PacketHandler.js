@@ -11,9 +11,6 @@ const decoder = new StringDecoder('utf8');
 
 
 
-
-
-
 class PacketHandler {
 
     static packet_handler(packet) {

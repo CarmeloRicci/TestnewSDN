@@ -4,6 +4,7 @@ const ModulePackets = require('../interfaces/packets');
 const ModuleMessage = require('../interfaces/message');
 const ModulePacketHandler = require('../services/PacketHandler');
 const ModuleConf = require('../interfaces/config');
+const ModuleBeacon = require('../services/Beacon');
 
 var count = 0;
 
@@ -26,10 +27,15 @@ var StartListener = function (TypeListener, NodeConf) {
 
     if (NodeConf.get('Sink') == '1') {
         console.log('\n\t\t I am the Sink\n\n')
+        ModuleBeacon.CreateBeaconMessage(NodeConf.get('MyAddress'),NodeConf.get('ServerIp'))
+
     } else if((NodeConf.get('Sink') == '0')) {
         console.log('\n\t\t I am a Node\n\n')
+        var beacon_process_start=0;
+
     } else {
         console.log('\n\t\t Undefined Node\n\n')
+        var beacon_process_start=0;
     }
 
 
