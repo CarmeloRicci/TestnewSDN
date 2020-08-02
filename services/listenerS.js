@@ -38,7 +38,7 @@ var StartListener = function (TypeListener, NodeConf, FlagRunBeaconProcess) {
   });
 
   if (FlagRunBeaconProcess == 1) {
-    BeaconProcess(NodeConf)
+    BeaconProcess(NodeConf);
   }
 }
 
@@ -51,9 +51,8 @@ function BeaconProcess (NodeConf){
     } else {
       console.log('CreateBeaconMessage -> Beacon sent ');
     }
-    setTimeout(BeaconProcess(NodeConf), 1000);
   });
-
+  setTimeout(() => { BeaconProcess(NodeConf) }, 100);
 }
 
 
