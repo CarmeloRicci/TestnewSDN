@@ -27,18 +27,20 @@ var StartListener = function (TypeListener, NodeConf, FlagRunBeaconProcess) {
   });
 
   //server.bind(Port, Ip);
-  server.bind(Port, Ip, function () {
-      server.setBroadcast(true);
-    });
-  // server.bind(Port, function () {
-  //   server.setBroadcast(true);
-  // });
+
+  // server.bind(Port, Ip, function () {
+  //     server.setBroadcast(true);
+  //   });
+
+  server.bind(Port, function () {
+    server.setBroadcast(true);
+  });
 
   if (FlagRunBeaconProcess == 1) {
     console.log("OK 1 !!!")
     var message = ModuleMessage.Message.get_message_for_paket(ModuleBeacon.Beacon.CreateBeaconMessage(NodeConf.get('MyAddress'), NodeConf.get('ServerIp')))
 
-    server.send(message, 0, message.length, NodeConf.get('ServerPort'), '10.10.0.5', function (err, bytes) {
+    server.send(message, 0, message.length, NodeConf.get('ServerPort'), NodeConf.get('ServerBroadcast'), function (err, bytes) {
       if (err) {
         //Broadcast.close();
       } else {
