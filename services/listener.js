@@ -38,7 +38,7 @@ var StartListener = function (TypeListener, NodeConf, FlagRunBeaconProcess) {
 
     server.bind(Port, Ip, function () {
         server.setBroadcast(true);
-        server.addMembership(NodeConf.get('ClientBroadcast'),NodeConf.get('ClientIp'));
+        //server.addMembership(NodeConf.get('ClientBroadcast'),NodeConf.get('ClientIp'));
     });
 
     // const p1 = new ModulePackets.Packets(1, 100, 1, 1, 0, 99, 1, 'Ciao');
