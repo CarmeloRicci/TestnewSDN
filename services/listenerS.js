@@ -28,13 +28,13 @@ var StartListener = function (TypeListener, NodeConf, FlagRunBeaconProcess) {
 
   //server.bind(Port, Ip);
 
-  // server.bind(Port, Ip, function () {
-  //     server.setBroadcast(true);
-  //   });
+  server.bind(Port, Ip, function () {
+      server.setBroadcast(true);
+    });
 
-  server.bind(Port, function () {
-    server.setBroadcast(true);
-  });
+  // server.bind(Port, function () {
+  //   server.setBroadcast(true);
+  // });
 
   if (FlagRunBeaconProcess == 1) {
     console.log("OK 1 !!!")
