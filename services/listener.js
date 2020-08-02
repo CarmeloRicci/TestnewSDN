@@ -23,7 +23,7 @@ var StartListener = function (TypeListener, NodeConf, FlagRunBeaconProcess) {
         //console.log (ModulePackets.Packets.print_packets(ModuleMessage.Message.get_packet_for_message(message) ) );
         ModulePacketHandler.PacketHandler.packet_handler(ModuleMessage.Message.get_packet_for_message(message)); // Attivo il Packet Handle per il messaggio appena ricevuto
     });
-    
+
     server.bind(Port, Ip);
 
     // const p1 = new ModulePackets.Packets(1, 100, 1, 1, 0, 99, 1, 'Ciao');
