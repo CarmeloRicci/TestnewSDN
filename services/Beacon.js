@@ -5,6 +5,7 @@ const ModuleConf = require('../interfaces/config');
 class Beacon {
 
     static CreateBeaconMessage (Source, Payload) {
+        console.log(8 , Source.length , Payload.length)
         var LengthTemp = 8 + Source.length + Payload.length;
         const p1 = new ModulePackets.Packets('0', ''+LengthTemp, '255', Source, '0', '99', '1', Payload);
         console.log('CreateBeaconMessage -> ' + ModulePackets.Packets.print_packets(p1))
