@@ -5,6 +5,9 @@ const dgram = require('dgram');
 const Broadcast = dgram.createSocket("udp4");
 Broadcast.setBroadcast(true);
 
+
+
+
 class Beacon {
 
     static CreateBeaconMessage(Source, Payload) {
@@ -14,10 +17,23 @@ class Beacon {
         //console.log(p1.NetId.length, p1.Length.length, p1.Destination.length, p1.Source.length, p1.Type.length, p1.TTL.length, p1.NextHop.length, p1.Payload.length)
         return p1
     }
-    static StartBeaconProcess(message,port,ip_address) {
+    static StartBeaconProcess(message, port, ip_address) {
 
-        Broadcast.send(message, 0, message.length, port, ip_address);
+        Broadcast.bind(port, function () {
+            Broadcast.setBroadcast(true);
+        });
+
+        //Broadcast.send(message, 0, message.length, port, ip_address);
         console.log('CreateBeaconMessage -> tutto ok!!!')
+
+        Broadcast.send(message, 0, message.length, port, broadcast, function (err, bytes) {
+            if (err) {
+                        //Broadcast.close();
+                      } else {
+                        console.log('CreateBeaconMessage -> Beacon sent ');
+                      }
+            });
+
     }
 
 }
