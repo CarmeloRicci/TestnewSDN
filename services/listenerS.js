@@ -18,10 +18,10 @@ var StartListener = function (TypeListener, NodeConf, FlagRunBeaconProcess) {
 
   //console.log(TypeListener + ': Ciao! questo è il listener ' + TypeListener + " che è in esecuzione all'indirizzo " + Ip + ' e porta: ' + Port);
 
-  server.on('listening', function () {
-    var address = server.address();
-    console.log(TypeListener + ': UDP Server listening on ' + address.address + ':' + address.port);
-  });
+  // server.on('listening', function () {
+  //   var address = server.address();
+  //   console.log(TypeListener + ': UDP Server listening on ' + address.address + ':' + address.port);
+  // });
 
   // server.on('message', function (message, remote) {
   //   console.log(TypeListener + ': Receiver message from ' + remote.address + ':' + remote.port + ' - ' + message);
@@ -37,10 +37,10 @@ var StartListener = function (TypeListener, NodeConf, FlagRunBeaconProcess) {
 
   //server.bind(Port, Ip);
 
-  server.bind(Port, Ip, function () {
-      server.setBroadcast(true);
-      //server.addMembership(NodeConf.get('ServerBroadcast'));
-    });
+  // server.bind(Port, Ip, function () {
+  //     server.setBroadcast(true);
+  //     //server.addMembership(NodeConf.get('ServerBroadcast'));
+  //   });
 
   // server.bind(Port, function () {
   //   server.setBroadcast(true);
@@ -50,13 +50,16 @@ var StartListener = function (TypeListener, NodeConf, FlagRunBeaconProcess) {
     console.log("OK 1 !!!")
     var message = ModuleMessage.Message.get_message_for_paket(ModuleBeacon.Beacon.CreateBeaconMessage(NodeConf.get('MyAddress'), NodeConf.get('ServerIp')))
 
-    server.send(message, 0, message.length, NodeConf.get('ServerPort'), NodeConf.get('ServerBroadcast'), function (err, bytes) {
-      if (err) {
-        //Broadcast.close();
-      } else {
-        console.log('CreateBeaconMessage -> Beacon sent ');
-      }
-    });
+    nc.udp().port(2100).init().send('hello', '127.0.0.1')
+
+
+    // server.send(message, 0, message.length, NodeConf.get('ServerPort'), NodeConf.get('ServerBroadcast'), function (err, bytes) {
+    //   if (err) {
+    //     //Broadcast.close();
+    //   } else {
+    //     console.log('CreateBeaconMessage -> Beacon sent ');
+    //   }
+    // });
 
 
   //ModuleBeacon.Beacon.StartBeaconProcess(message,NodeConf.get('ServerPort'), NodeConf.get('ServerBroadcast'))
