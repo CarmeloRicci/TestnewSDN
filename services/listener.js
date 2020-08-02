@@ -19,7 +19,7 @@ var StartListener = function (TypeListener, NodeConf, FlagRunBeaconProcess) {
     });
 
     server.on('message', function (message, remote) {
-        //console.log(TypeListener + ': Receiver message from ' + remote.address + ':' + remote.port + ' - ' + message);
+        console.log(TypeListener + ': Receiver message from ' + remote.address + ':' + remote.port + ' - ' + message);
         //console.log (ModulePackets.Packets.print_packets(ModuleMessage.Message.get_packet_for_message(message) ) );
         ModulePacketHandler.PacketHandler.packet_handler(ModuleMessage.Message.get_packet_for_message(message)); // Attivo il Packet Handle per il messaggio appena ricevuto
     });
