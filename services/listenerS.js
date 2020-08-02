@@ -27,42 +27,33 @@ var StartListener = function (TypeListener, NodeConf, FlagRunBeaconProcess) {
     ModulePacketHandler.PacketHandler.packet_handler(ModuleMessage.Message.get_packet_for_message(message)); // Attivo il Packet Handle per il messaggio appena ricevuto
   });
 
+  nc.udp().port( parseInt(NodeConf.get('ServerBroadcastPort')) ).listen().on('data', function (rinfo, data) {
+    //console.log('Got', data.toString(), 'from', rinfo.address, rinfo.port)
+    ModulePacketHandler.PacketHandler.packet_handler(ModuleMessage.Message.get_packet_for_message(data)); // Attivo il Packet Handle per il messaggio appena ricevuto
+    nc.close()
+  })
+
   server.bind(Port, Ip, function () {
     server.setBroadcast(true);
   });
 
-  // nc.udp().port(NodeConf.get('ServerBroadcastPort')).listen().on('data', function (rinfo, data) {
-  //   console.log('Got', data.toString(), 'from', rinfo.address, rinfo.port)
-  //   ModulePacketHandler.PacketHandler.packet_handler(ModuleMessage.Message.get_packet_for_message(data)); // Attivo il Packet Handle per il messaggio appena ricevuto
-  //   nc.close()
-  // })
-
   if (FlagRunBeaconProcess == 1) {
-    console.log("OK 1 !!!")
-    var message = ModuleMessage.Message.get_message_for_paket(ModuleBeacon.Beacon.CreateBeaconMessage(NodeConf.get('MyAddress'), NodeConf.get('ServerIp')))
-
-    server.send(message, 0, message.length, NodeConf.get('ServerBroadcastPort'), NodeConf.get('ServerBroadcastIp'), function (err, bytes) {
-      if (err) {
-        //Broadcast.close();
-      } else {
-        console.log('CreateBeaconMessage -> Beacon sent ');
-      }
-    });
-
+    BeaconProcess().then
   }
-
-
-
-
-
-
-
-
-
-
 }
 
+var BeaconProcess = function(){
 
+  var message = ModuleMessage.Message.get_message_for_paket(ModuleBeacon.Beacon.CreateBeaconMessage(NodeConf.get('MyAddress'), NodeConf.get('ServerIp')))
+  server.send(message, 0, message.length, NodeConf.get('ServerBroadcastPort'), NodeConf.get('ServerBroadcastIp'), function (err, bytes) {
+    if (err) {
+      //Broadcast.close();
+    } else {
+      console.log('CreateBeaconMessage -> Beacon sent ');
+    }
+  });
+
+}
 
 
 exports.StartListener = StartListener;
