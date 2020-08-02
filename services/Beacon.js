@@ -3,10 +3,6 @@ const ModulePackets = require('../interfaces/packets');
 const ModuleConf = require('../interfaces/config');
 const dgram = require('dgram');
 const Broadcast = dgram.createSocket("udp4");
-Broadcast.setBroadcast(true);
-
-
-
 
 class Beacon {
 
