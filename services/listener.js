@@ -8,6 +8,7 @@ const ModuleMessage = require('../interfaces/message');
 const ModulePacketHandler = require('../services/PacketHandler');
 const ModuleConf = require('../interfaces/config');
 const ModuleBeacon = require('../services/Beacon');
+const ModuleMain = require('../main');
 
 
 var FlagRunBeaconProcess = 0;
