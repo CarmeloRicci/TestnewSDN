@@ -24,10 +24,12 @@ var StartListener = function (TypeListener, NodeConf) {
     });
     server.bind(Port, Ip);
 
-    if (NodeConf.get('Sink') == 'YES') {
+    if (NodeConf.get('Sink') == '1') {
         console.log('\n\t\t I am the Sink\n\n')
-    } else {
+    } else if((NodeConf.get('Sink') == '0')) {
         console.log('\n\t\t I am a Node\n\n')
+    } else {
+        console.log('\n\t\t Undefined Node\n\n')
     }
 
 
