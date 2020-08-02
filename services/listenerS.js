@@ -52,7 +52,7 @@ function BeaconProcess (NodeConf){
       console.log('CreateBeaconMessage -> Beacon sent ');
     }
   });
-  setTimeout(() => { BeaconProcess(NodeConf) }, 100);
+  setTimeout(() => { BeaconProcess(NodeConf) }, 6000);
 }
 
 
