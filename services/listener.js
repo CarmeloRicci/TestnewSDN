@@ -37,6 +37,21 @@ var StartListener = function (TypeListener, NodeConf, FlagRunBeaconProcess) {
     });
 
 
+    function BeaconProcess (){
+
+        var message = ModuleMessage.Message.get_message_for_paket(ModuleBeacon.Beacon.CreateBeaconMessage(NodeConf.get('MyAddress'), NodeConf.get('ClientIp')))
+        server.send(message, 0, message.length, ModuleMain.NodeConf.get('ClientBroadcastPort'), ModuleMain.NodeConf.get('ClientBroadcastIp'), function (err, bytes) {
+          if (err) {
+            //Broadcast.close();
+          } else {
+            console.log('CreateBeaconMessage -> Beacon sent ');
+          }
+        });
+        setTimeout(() => { BeaconProcess() }, 6000);
+      }
+
+
+
     // const p1 = new ModulePackets.Packets(1, 100, 1, 1, 0, 99, 1, 'Ciao');
     // console.log(TypeListener + ': ' + ModulePackets.Packets.print_packets(p1))
 
@@ -55,3 +70,4 @@ var StartListener = function (TypeListener, NodeConf, FlagRunBeaconProcess) {
 
 
 exports.StartListener = StartListener;
+exports.FlagRunBeaconProcess = FlagRunBeaconProcess;

@@ -33,3 +33,4 @@ async function start() {
 }
 
 start().then
+exports.NodeConf = NodeConf;

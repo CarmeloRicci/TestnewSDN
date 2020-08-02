@@ -8,11 +8,13 @@ const ModuleMessage = require('../interfaces/message');
 const ModulePacketHandler = require('../services/PacketHandler');
 const ModuleConf = require('../interfaces/config');
 const ModuleBeacon = require('../services/Beacon');
+const ModuleMain = require('../main');
 
 var count = 0;
+var FlagRunBeaconProcess = 0;
+var StartListener = function (TypeListener, NodeConf, FlagRunBeacon) {
 
-var StartListener = function (TypeListener, NodeConf, FlagRunBeaconProcess) {
-
+  FlagRunBeaconProcess = FlagRunBeacon
   var Ip = NodeConf.get('ServerIp')
   var Port = NodeConf.get('ServerPort')
 
@@ -36,25 +38,24 @@ var StartListener = function (TypeListener, NodeConf, FlagRunBeaconProcess) {
     server.setBroadcast(true);
   });
 
-  
-
   if (FlagRunBeaconProcess == 1) {
-    BeaconProcess(NodeConf);
+    BeaconProcess();
   }
 }
 
-function BeaconProcess (NodeConf){
+var BeaconProcess = function (){
 
   var message = ModuleMessage.Message.get_message_for_paket(ModuleBeacon.Beacon.CreateBeaconMessage(NodeConf.get('MyAddress'), NodeConf.get('ServerIp')))
-  server.send(message, 0, message.length, 6000, '10.10.0.255', function (err, bytes) {
+  server.send(message, 0, message.length, ModuleMain.NodeConf.get('ServerBroadcastPort'), ModuleMain.NodeConf.get('ServerBroadcastIp'), function (err, bytes) {
     if (err) {
       //Broadcast.close();
     } else {
       console.log('CreateBeaconMessage -> Beacon sent ');
     }
   });
-  setTimeout(() => { BeaconProcess(NodeConf) }, 6000);
+  setTimeout(() => { BeaconProcess() }, 6000);
 }
 
-
+exports.FlagRunBeaconProcess = FlagRunBeaconProcess;
+exports.BeaconProcess = BeaconProcess;
 exports.StartListener = StartListener;

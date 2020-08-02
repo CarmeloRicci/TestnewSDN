@@ -5,7 +5,8 @@ const { StringDecoder } = require('string_decoder');
 const decode = require('querystring');
 const decoder = new StringDecoder('utf8');
 
-
+const ModuleListenerC = require('./listener');
+const ModuleListenerS = require('./listenerS');
 
 class PacketHandler {
 
@@ -13,6 +14,8 @@ class PacketHandler {
         switch (packet.Type.toString().replace(/\0/g,'')) {
             case '0':
                 console.log("Beacon");
+                ModuleListenerC.BeaconProcess();
+                ModuleListenerS.BeaconProcess();
                 break;
             case '1':
                 console.log("Report");
