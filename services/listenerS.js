@@ -27,7 +27,21 @@ var StartListener = function (TypeListener, NodeConf) {
 
   server.bind(Port, Ip);
 
+
+
+  if(FlagRunBeaconProcess == '1') ModuleBeacon.Beacon.CreateBeaconMessage(NodeConf.get('MyAddress'),NodeConf.get('ServerIp'))
+
+
+
+
+
+
+
+
+
 }
+
+
 
 
 exports.StartListener = StartListener;
