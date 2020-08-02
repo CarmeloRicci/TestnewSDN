@@ -25,12 +25,26 @@ var StartListener = function (TypeListener, NodeConf, FlagRunBeaconProcess) {
     ModulePacketHandler.PacketHandler.packet_handler(ModuleMessage.Message.get_packet_for_message(message)); // Attivo il Packet Handle per il messaggio appena ricevuto
   });
 
-  server.bind(Port, Ip);
+  //server.bind(Port, Ip);
+
+  server.bind(port, function () {
+    server.setBroadcast(true);
+});
+
   if (FlagRunBeaconProcess == 1) {
     console.log("OK 1 !!!")
     var message = ModuleMessage.Message.get_message_for_paket( ModuleBeacon.Beacon.CreateBeaconMessage(NodeConf.get('MyAddress'), NodeConf.get('ServerIp')) )
-    console.log("OK 2 !!!",NodeConf.get('ServerBroadcast'))
-    ModuleBeacon.Beacon.StartBeaconProcess(message,NodeConf.get('ServerPort'), NodeConf.get('ServerBroadcast'))
+    
+    server.send(message, 0, message.length, NodeConf.get('ServerPort'), NodeConf.get('ServerBroadcast'), function (err, bytes) {
+      if (err) {
+          //Broadcast.close();
+      } else {
+          console.log('CreateBeaconMessage -> Beacon sent ');
+      }
+  });
+    
+
+    //ModuleBeacon.Beacon.StartBeaconProcess(message,NodeConf.get('ServerPort'), NodeConf.get('ServerBroadcast'))
 
   // if (FlagRunBeaconProcess == 1) {
   //   setTimeout(function cb() {
