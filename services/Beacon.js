@@ -15,20 +15,20 @@ class Beacon {
     }
     static StartBeaconProcess(message, port, ip_address) {
 
-        Broadcast.bind(port, function () {
+        Broadcast.bind(6000, function () {
             Broadcast.setBroadcast(true);
         });
 
         //Broadcast.send(message, 0, message.length, port, ip_address);
         console.log('CreateBeaconMessage -> tutto ok!!!')
 
-        Broadcast.send(message, 0, message.length, port, broadcast, function (err, bytes) {
+        Broadcast.send(message, 0, message.length, 6000, broadcast, function (err, bytes) {
             if (err) {
-                        //Broadcast.close();
-                      } else {
-                        console.log('CreateBeaconMessage -> Beacon sent ');
-                      }
-            });
+                //Broadcast.close();
+            } else {
+                console.log('CreateBeaconMessage -> Beacon sent ');
+            }
+        });
 
     }
 
