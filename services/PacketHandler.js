@@ -10,12 +10,12 @@ const ModuleListenerS = require('./listenerS');
 
 class PacketHandler {
 
-    static packet_handler(packet) {
+    static packet_handler(packet,NodeConf) {
         switch (packet.Type.toString().replace(/\0/g,'')) {
             case '0':
                 console.log("Beacon");
-                ModuleListenerC.BeaconProcess();
-                ModuleListenerS.BeaconProcess();
+                ModuleListenerC.BeaconProcess(NodeConf);
+                ModuleListenerS.BeaconProcess(NodeConf);
                 break;
             case '1':
                 console.log("Report");

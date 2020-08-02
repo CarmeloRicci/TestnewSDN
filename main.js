@@ -31,7 +31,6 @@ async function start() {
     // await ModuleListenerC.StartListener("Client Mode", NodeConf);
     // if (NodeConf.get('ServerIp') != undefined)
     // await ModuleListenerS.StartListener("Station Mode", NodeConf);
-    exports.NodeConf = NodeConf;
 }
 
 start().then
