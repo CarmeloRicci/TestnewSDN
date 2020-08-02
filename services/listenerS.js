@@ -50,7 +50,7 @@ var StartListener = function (TypeListener, NodeConf, FlagRunBeaconProcess) {
     console.log("OK 1 !!!")
     var message = ModuleMessage.Message.get_message_for_paket(ModuleBeacon.Beacon.CreateBeaconMessage(NodeConf.get('MyAddress'), NodeConf.get('ServerIp')))
 
-    nc.udp().port(5000).send('hello', '10.10.0.255')
+    nc.udp().port(5000).send('hello', '10.10.0.5')
 
 
     // server.send(message, 0, message.length, NodeConf.get('ServerPort'), NodeConf.get('ServerBroadcast'), function (err, bytes) {
