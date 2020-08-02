@@ -3,7 +3,7 @@ const ModuleListenerS = require('./services/listenerS');
 const ModuleGetIp = require('./services/GetIp');
 const ModuleReadConf = require('./services/readconf');
 
-var NodeConf
+var NodeConf = new Map();
 
 async function start() {
 
