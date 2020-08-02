@@ -1,7 +1,7 @@
 const Modulemessage = require('../interfaces/message');
 const ModulePackets = require('../interfaces/packets');
 const ModuleConf = require('../interfaces/config');
-
+const dgram = require('dgram');
 const Broadcast = dgram.createSocket("udp4");
 
 class Beacon {
