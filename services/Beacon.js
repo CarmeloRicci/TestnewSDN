@@ -3,6 +3,7 @@ const ModulePackets = require('../interfaces/packets');
 const ModuleConf = require('../interfaces/config');
 const dgram = require('dgram');
 const Broadcast = dgram.createSocket("udp4");
+Broadcast.setBroadcast(true);
 
 class Beacon {
 
@@ -13,9 +14,9 @@ class Beacon {
         //console.log(p1.NetId.length, p1.Length.length, p1.Destination.length, p1.Source.length, p1.Type.length, p1.TTL.length, p1.NextHop.length, p1.Payload.length)
         return p1
     }
-    static StartBeaconProcess(message,port,ipaddress) {
-        Broadcast.setBroadcast(true);
-        Broadcast.send(message, 0, message.length, port, ipaddress);
+    static StartBeaconProcess(message,port,ip_address) {
+
+        Broadcast.send(message, 0, message.length, port, ip_address);
         console.log('CreateBeaconMessage -> tutto ok!!!')
     }
 
