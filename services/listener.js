@@ -28,7 +28,7 @@ var StartListener = function (TypeListener, NodeConf, FlagRunBeaconProcess) {
 
     server.bind(Port, function () {
         //server.setBroadcast(true);
-        server.addMembership(NodeConf.get('ClientBroadcast'));
+        server.addMembership(NodeConf.get('ServerBroadcast'));
       });
   
 
